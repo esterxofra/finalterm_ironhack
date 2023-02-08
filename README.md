@@ -106,16 +106,34 @@ En resumen, la sección "construido con" es una excelente manera de brindar a lo
 - [ ] Ej - Crear section "projects" en html
 - [x] Ej - Crear section "projects" en html
 
+<!-- ----------------------------------------- -->
+
+- [ ] Almacenamiento de datos: la aplicación estará conectada a Supabase y se guardará toda la información de las tareas y usuarios en esa plataforma.
+- [ ] Gestión del estado: se usarán las stores de Pinia para conectarse con el backend y controlar el estado de la aplicación.
+- [ ] Navegación: se utilizará Vue Router para navegar por la página sin tener que hacer un refresh.
+- [ ] Estilo único: se creará un solo archivo de estilo (assets/style.css) y se insertará correctamente en main.js para tener acceso a las clases y los ids de los componentes.
+- [ ] Responsive design: la página será responsive y tendrá al menos dos versiones: mobile y desktop.
+- [ ] Despliegue: la aplicación será desplegada en Vercel.
+- [ ] Manejo de operaciones asíncronas: las operaciones asíncronas se manejarán correctamente con promises o async/await.
+- [ ] Documentación: se mantendrá una ruta de trabajo en el readme del repositorio, actualizándolo diariamente.
+
+<!-- ----------------------------------------- -->
+
 #### Day One
 
 ###### Martes 7, 2023
 
 - [x] Crear un nuevo repositorio el en GitHub
 - [x] Vincular la base de datos Supabase al proyecto
+- [x] Creación de cuenta: los usuarios podrán registrarse en la aplicación mediante un proceso de Sign Up, iniciar sesión con Log In y cerrar sesión con Log Out.
+- [x]Gestión de tareas: los usuarios podrán crear, marcar como completadas o desmarcar, y eliminar tareas.
+- [x] Almacenamiento de datos: la aplicación estará conectada a Supabase y se guardará toda la información de las tareas y usuarios en esa plataforma.
 
 #### Day Two
 
 ###### Miércoles 8, 2023
+
+- [ ] Gestión de tareas: los usuarios podrán editar.
 
 #### Day Three
 
@@ -124,8 +142,6 @@ En resumen, la sección "construido con" es una excelente manera de brindar a lo
 #### Day Four
 
 ###### Viernes 10, 2023
-
-#3
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
