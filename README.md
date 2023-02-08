@@ -140,6 +140,7 @@ En resumen, la sección "construido con" es una excelente manera de brindar a lo
 - [ ] Despliegue: la aplicación será desplegada en Vercel.
 - [ ] Facilitar que el usuario pueda editar su perfil.
 - [ ] Investigar cómo hacer la lógica del reloj/cronómetro.
+- [ ] Crear un componente para el footer de la aplicación.
 - [ ] Documentación: se mantendrá una ruta de trabajo en el readme del repositorio, actualizándolo diariamente.
 
 #### Day Four
