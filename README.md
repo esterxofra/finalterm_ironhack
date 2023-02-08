@@ -129,6 +129,11 @@ En resumen, la sección "construido con" es una excelente manera de brindar a lo
 - [x]Gestión de tareas: los usuarios podrán crear, marcar como completadas o desmarcar, y eliminar tareas.
 - [x] Almacenamiento de datos: la aplicación estará conectada a Supabase y se guardará toda la información de las tareas y usuarios en esa plataforma.
 
+#### Things I want to do
+
+- [x] Empezar a diseñar la aplicación de tareas en mobile first
+- [x] Hacer commits para cada una de las tareas indicadas
+
 #### Day Two
 
 ###### Miércoles 8, 2023

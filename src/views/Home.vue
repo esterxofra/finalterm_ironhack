@@ -8,7 +8,23 @@
     </div>
     <NewTask />
     <h1>Tasks:</h1>
-    <TaskItem v-for="task in tasks" :key="task.id" :task="task" />
+    <!-- 4 step: key standard de v-for i task es lo que li volem passar . task seria tot. id unic-->
+
+    <!-- aixo :task="task" es prop perque es el pare que es tot l'array qui li passa info al fill (taskitem) perque es el component que crido a home -->
+
+    <!-- aixo es un emit @child-complete="completeTaskSupabase" perque li pasem una funció que tenim en el pare (home) -->
+
+    <!-- la task a supabase te com estat sempre false pero necessitem una funció que vagi a superbase per acualitzar l'estat de la tasca false true -->
+
+    <TaskItem
+      v-for="task in tasks"
+      :key="task.id"
+      :task="task"
+      @childComplete="completeTaskSupabase"
+      @editChild="editTaskSupabase"
+    />
+
+    <!-- aquest evento crida a la funció copletask del boto de taskitem mark as completed-->
   </div>
 </template>
 
@@ -22,19 +38,60 @@ import TaskItem from "../components/TaskItem.vue";
 
 const taskStore = useTaskStore();
 
-// Variable para guardar las tareas de supabase
+// Variable para guardar las tareas de supabase - array de tasques
+// 1 step --> crear una variable que contindrà un array
 const tasks = ref([]);
 
 // Creamos una función que conecte a la store para conseguir las tareas de supabase
+// 2 step --> omplir l'array de tasques
 const getTasks = async () => {
   tasks.value = await taskStore.fetchTasks();
 };
 
+// 3 setp --> abans no s'hagi muntat aquest component, cridem a la funció. un cop carreguem la pagina es vegin les tareas. aquesta funció es crida sols uan es crida al component.
 getTasks();
 
 onUpdated(() => {
   getTasks();
 });
+
+// FUNCIÓN PARA COMPLETAR TAREA CONECTANDOSE A SUPABASE
+
+// a la funció completedTask (taskitem) li estem un emit que es childComplete que es un event que activa la funciói completeTaskSupabase i aquesta funció el que da es conectar-se mab supabase.
+
+// com aquesta funcio completeTaskSupabase te un parametre que es taskObject quan cridem l'emit li hem de pasar un argument que es la taska que hem rebut desde props (taskttems) linea 39
+
+const completeTaskSupabase = async (taskObject) => {
+  console.log("click");
+  console.log(taskObject); // esto es un objeto que incluye description, id, inserted_at, is_complete, title, user_id
+  console.log(taskObject.id);
+  console.log(taskObject.is_complete); //true
+
+  // taskObject aixo es el prop.task que li passes per taskitem (on cridem l'emit)
+
+  let changeTaskBooleanValue = !taskObject.is_complete;
+
+  // li passem una taska que es un key complet. aquesta pot ser true o false. creem una variable miro la task object. si task is complete es false el bolen sera true
+
+  let taskId = taskObject.id;
+
+  await taskStore.completeTask(changeTaskBooleanValue, taskId);
+
+  // Variable para usar tienda de tarea fácil const taskStore = useTaskStore(); estic cridant a la funció completeTask que tens guardada a la task store. await perque el que fa completeastk es anar a superbase. esperar a que tonri la info. dependem de una cosa externa i mentre esperem saltarien errors no puc crear els items perque no tinc la resposa. t'esperes a tenir la informaciño per continuar ejecutant el codi.
+
+  // per defecte la tasca no feta es false pero changeTaskBooleanValue es el contrari
+};
+
+// FUNCIÓN PARA EDITAR UNA TAREA CONECTÁNDOSE A SUPERBASE
+const editTaskSupabase = async (editTaskObject) => {
+  console.log("click");
+  console.log(editTaskObject);
+  await taskStore.editTaskSupabase(
+    editTaskObject.title,
+    editTaskObject.id,
+    editTaskObject.description
+  );
+};
 </script>
 
 <style></style>

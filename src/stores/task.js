@@ -6,7 +6,7 @@ import { useUserStore } from "./user";
 export const useTaskStore = defineStore("tasks", () => {
   // Esta tienda utiliza el Composition API
   const tasksArr = ref(null);
-  // conesguir tareas de supabase
+  // conesguir tareas de supabase (objeto)
   const fetchTasks = async () => {
     const { data: tasks } = await supabase
       .from("tasks")
@@ -27,11 +27,36 @@ export const useTaskStore = defineStore("tasks", () => {
       },
     ]);
   };
+
+  //COMPLETAR TAREA DE SUPERBASE - APUNTANDO AL VALOR BOOLEANO is_complete
+
+  const completeTask = async (valorDeBooleano, id) => {
+    let { data: tasks, error } = await supabase
+      .from("tasks")
+      .update({ is_complete: valorDeBooleano })
+      .match({ id: id });
+  };
+
+  // EDITAR TAREA EN SUPABASE
+  const editTaskSupabase = async (title, id, description) => {
+    let { data: tasks, error } = await supabase
+      .from("tasks")
+      .update({ title: title, description: description })
+      .match({ id: id });
+  };
+
   // borrar tareas de supabase
   const deleteTask = async (id) => {
     const { data, error } = await supabase.from("tasks").delete().match({
       id: id,
     });
   };
-  return { tasksArr, fetchTasks, addTask, deleteTask };
+  return {
+    tasksArr,
+    fetchTasks,
+    addTask,
+    deleteTask,
+    completeTask,
+    editTaskSupabase,
+  };
 });
