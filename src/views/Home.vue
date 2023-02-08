@@ -8,6 +8,7 @@
     </div>
     <NewTask />
     <h1>Tasks:</h1>
+
     <!-- 4 step: key standard de v-for i task es lo que li volem passar . task seria tot. id unic-->
 
     <!-- aixo :task="task" es prop perque es el pare que es tot l'array qui li passa info al fill (taskitem) perque es el component que crido a home -->
@@ -65,11 +66,11 @@ const completeTaskSupabase = async (taskObject) => {
   console.log("click");
   console.log(taskObject); // esto es un objeto que incluye description, id, inserted_at, is_complete, title, user_id
   console.log(taskObject.id);
-  console.log(taskObject.is_complete); //true
+  console.log(taskObject.is_complete); //false
 
   // taskObject aixo es el prop.task que li passes per taskitem (on cridem l'emit)
 
-  let changeTaskBooleanValue = !taskObject.is_complete;
+  let changeTaskBooleanValue = !taskObject.is_complete; //true
 
   // li passem una taska que es un key complet. aquesta pot ser true o false. creem una variable miro la task object. si task is complete es false el bolen sera true
 

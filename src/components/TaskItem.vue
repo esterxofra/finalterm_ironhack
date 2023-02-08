@@ -1,16 +1,24 @@
 <template>
   <div class="container">
-    <h3 :class="props.task.is_complete ? 'done' : 'pending'">
-      {{ task.title }}
-    </h3>
+    <div>
+      <h3 :class="props.task.is_complete ? 'done' : 'pending'">
+        {{ task.title }}
+      </h3>
 
-    <p :class="props.task.is_complete ? 'done' : 'pending'">
-      {{ task.description }}
-    </p>
+      <p :class="props.task.is_complete ? 'done' : 'pending'">
+        {{ task.description }}
+      </p>
+    </div>
 
-    <button @click="deleteTask">Delete</button>
+    <button @click="showModalToggle">Delete</button>
 
-    <button @click="completedTask">Mark as completed</button>
+    <div class="modal" v-if="showModal">
+      <h2>Are you sure you want to delete this task?</h2>
+      <button @click="deleteTask">Yes</button>
+      <button @click="showModalToggle">Cancel</button>
+    </div>
+
+    <button @click="completedTask">Completed</button>
 
     <button @click="showInput">Edit</button>
   </div>
@@ -88,10 +96,9 @@ const deleteTask = async () => {
   await taskStore.deleteTask(props.task.id);
 };
 
-const tareaCompletada = ref("false");
-
-const toggleButton = () => {
-  tareaCompletada.value = !tareaCompletada.value;
+const showModal = ref(false);
+const showModalToggle = () => {
+  showModal.value = !showModal.value;
 };
 </script>
 
