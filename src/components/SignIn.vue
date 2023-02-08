@@ -1,5 +1,3 @@
-<!-- COMPONENTE BOILERPLATE -->
-
 <template>
   <div class="container">
     <div>
@@ -39,7 +37,7 @@
           <PersonalRouter
             :route="route"
             :buttonText="buttonText"
-            class="sign-up-link"
+            class="sign-in-link"
           />
         </p>
       </div>
@@ -59,6 +57,9 @@ import { storeToRefs } from "pinia";
 const email = ref("");
 const password = ref("");
 
+// Error Message
+const errorMsg = ref("");
+
 // Router to push user once SignedUp to Log In???
 const redirect = useRouter();
 
@@ -68,16 +69,21 @@ const buttonText = "Sign Up";
 
 // Arrow function to Signin user to supaBase
 const signIn = async () => {
-  console.log("Hola pepsicola");
   if (email.value) {
     try {
       await useUserStore().signIn(email.value, password.value);
       redirect.push({ path: "/" });
     } catch (error) {
-      console.log(error);
-      throw error;
+      // displays error message
+      errorMsg.value = error.message;
+      // hides error message
+      setTimeout(() => {
+        errorMsg.value = null;
+      }, 5000);
     }
+    return;
   }
+  errorMsg.value = "error";
 };
 </script>
 
