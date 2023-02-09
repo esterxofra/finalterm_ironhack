@@ -13,34 +13,44 @@
     </div>
 
     <!-- BOTÓN PARA ELIMINAR LA TAREA -->
-    <button @click="showModalToggle">Delete</button>
+    <button @click="showModalToggle">Delete task</button>
 
     <!-- BOTÓN PARA CONFIRMAR LA ELIMINACIÓN DE LA TAREA -->
     <div class="modal" v-if="showModal">
       <h2>Are you sure you want to delete this task?</h2>
-      <button @click="deleteTask">Yes</button>
+      <button @click="deleteTask">Yes, of course!</button>
       <button @click="showModalToggle">Cancel</button>
     </div>
 
     <!-- BOTÓN PARA MARCAR COMO COMPLETADA LA TAREA -->
-    <button @click="completedTask">Completed</button>
+    <button @click="completedTask">Mark task as completed</button>
 
     <!-- BOTÓN PARA DESPLEGAR LA OPCIÓN DE EDITAR LA TAREA -->
-    <button @click="showInput">Edit</button>
+    <button @click="showInput">Edit task</button>
   </div>
 
-  <!-- BOTÓN PARA EDITAR LA TAREA -->
+  <!-- INPUTS Y BOTÓN PARA EDITAR LA TAREA -->
   <div v-if="inputContainer">
-    <input
-      type="text"
-      v-model="currentTaskTitle"
-      placeholder="Insert title..."
-    />
-    <input
-      type="text"
-      v-model="currentTaskDescription"
-      placeholder="Insert description..."
-    />
+    <div>
+      <label for="title">Insert or modify your current title:</label>
+      <input
+        type="text"
+        name="title"
+        v-model="currentTaskTitle"
+        placeholder="Insert new title..."
+      />
+    </div>
+    <div>
+      <label for="description"
+        >Insert or modify your current description:</label
+      >
+      <input
+        type="text"
+        name="description"
+        v-model="currentTaskDescription"
+        placeholder="Insert new description..."
+      />
+    </div>
     <button @click="editTask">Edit Task</button>
   </div>
 </template>
@@ -50,22 +60,11 @@ import { ref } from "vue";
 import { useTaskStore } from "../stores/task";
 import { supabase } from "../supabase";
 
-//DEFINIR EMITS PARA PASAR LÓGICA Y EVENTOS HACIA COMPONENTES PADRES
-// et vindran uns emits del teu pare que es diran childComplete", "editChild
+//DEFINIR EMITS PARA PASAR LÓGICA Y EVENTOS HACIA COMPONENTES PADRES (TE VENDRAN UNOS EMITS DE TU PADRE QUE SE LLAMARAN CHILDCOMPLETE Y EDITCHILD)
+
 const emit = defineEmits(["childComplete", "editChild"]);
 
-// FUNCIÓN PARA COMPLETAR TAREA QUE SE ENCARGA DE ENVIAR LA INFO AL PADRE
-
-const completedTask = () => {
-  // console.log("click!");
-  // console.log(props.task.is_complete);
-  emit("childComplete", props.task);
-};
-
-// Este props.task es de editar
-// emetre la funció del pares es a dir teim una fnció al fill que te un evento. quan crido a childcomplete crida a complete task suparbase. ey pare has de cridar aquesta funció
-
-// Variable para usar tienda de tarea fácil
+// Variable para usar el store de tarea facilmente
 const taskStore = useTaskStore();
 
 // Variable para recibir info de la tarea mediante prop como .Objeto
@@ -73,10 +72,14 @@ const props = defineProps({
   task: Object,
 });
 
-//per veure tot lo que conte l'array de task
-console.log(props.task);
+// FUNCIÓN PARA COMPLETAR TAREA QUE SE ENCARGA DE ENVIAR LA INFO AL PADRE
+const completedTask = () => {
+  // console.log("click!");
+  // console.log(props.task.is_complete);
+  emit("childComplete", props.task);
+};
 
-// Función para mostrar y ocultar inputs
+// FUNCIÓN PARA QUE CUANDO LE DES A EDITAR TAREA TE APAREZCAN NUEVOS INPUS Y EL BOTÓN DE EDITAR
 const inputContainer = ref(false);
 const currentTaskTitle = ref("");
 const currentTaskDescription = ref("");
@@ -94,7 +97,7 @@ const editTask = () => {
     currentTaskDescription.value.length === 0
     // Si no hay título o descripción, que me salte una alerta
   ) {
-    alert("Title or Description can not be empty");
+    alert("The task title or description is empty or just too short");
   } else {
     const newTaskEdited = {
       title: currentTaskTitle.value,
@@ -102,7 +105,9 @@ const editTask = () => {
       id: props.task.id,
     };
     emit("editChild", newTaskEdited);
+
     /*
+    JARKO - EL HIJO LLAMA DIRECTAMENTE A LA BASE DE DATOS SIN PASAR POR EL PADRE: 
     await taskStore.editTaskSupabase(
       currentTaskTitle.value,
       props.task.id,
@@ -111,25 +116,12 @@ const editTask = () => {
   }
 };
 
-//  EXPLICACIÓN DE JARKO: QUIÉN HABLA CON SUPABASE? LA STORE DE TASK PORQUE ESTOY EDITANDO UNA TASK NO UN USUER. QUIERO COMUNICARME CON LA BASE DE DATOS PERO LOS COMPONENTES POR COMO ESTA EL CÓDIGO NO SE COMUNICAN CON LA SUPABASE, ESTO LO HACEN LAS STORES. FORMULARIOS DE ENTRADA????
-// CREAMOS UNA FUNCIÓN EDITTASK, ESTA ES ASINCRONA PORQUE SE COMUNICA CON UNA BASE DE DATOS. Y LE TENEMOS QUE PASAR UN TÍTULO, UNA DESCRIPCIÓN Y UNA ID. ESTO ESTARIA EN EL TASK.JS.
-// EN TASKITEM TENEMOS UNA FUNCIÓN ASYNC QUE SE LLAMA SENDDATA
-
-// CONST SENDDATA = ASYNC () => {
-// TASKSTORE.EDITASK ( Y LE PONEMOS 3 VARIABLES PORQUE LA FUNCIÓN EDITTASK TIENE TRES VARIABLES). NOS SALE UN ERROR PORQUE EDITTASK NOS DICE QUE NO ES UNA FUNCIÓN PERO SI QUE LO ES PORQUE ESTA EN TASK.JS (CONTIENE UN OBJETO) EL OBJETO TIENE UN RETURN, UNA SERIE DE VALORES QUE ME DEVUELVE Y UNO DE ESOS TIENE QUE SER EDIT TASK PROQUE SINO NO LO RECONOCE COMO UNA FUNCIÓN. ESTO EN TASK.JS EH! ESTAS VARIABLES DE EDITTASK NO LAS ESTOY UTILIZANDO PARA NADA - UNDEFINE (VALOR POR DEFECTO QUE SE UTILIZA CUANDO ESPERABA QUE ME DIERAS ALGO QUE JAMAS ME HAS DADO).
-
-// TASK.JS - EL EDIT TASK SE TIENE QUE CONECTAR CON EL SUPABASE. FORMULARIO DE ENTRADA. GENERAR UNOS DATOS Y QUE NOS DEVUELVA UN ERROR. DECLARAMOS {DATA, ERROR} I AWAIT ESPERA QUE LA BAE DE DATOS DFUNCIONE. DENTRO DE LA BASE DE DATOS TASK QUIERO QUE HAGAS ALGO AWAIT .SUPABASE. FROM TASK. UPDARE PORQUE QUEREMOS ACTUALIZAR LA BASE DE DATOS Y DENTRO LE DECIDMOS, EL TÍTULO QUIERO QUE SEA EL TITULO, LA DESCRIPCIÓN QUE SEA LA DESCRIPCIÓN PERO A QUIEN SE LO QUIERO CAMBIAR? A AQUEL QUE SEA MATCH O EQ CON EL ID. DONDE ID ES ID.
-
-//CUALES SON LOS PARAMETROS REALES QUE LE TENEMOS QUE PASAR A SEND DATA DE TASKITEM: NEWTITLE.VALUE, NEWDESCRIPTION.VALUE Y PROPS.TASK.ID
-
-//VALE HASTA AQUÍ TODO BIEN PERO PARA VER LA ACTUALIZACIÓN DE LA TAREA TENGO QUE IR A ACTUALIZAR LA PÁGINA. O HACER UN EMIT....
-
-// Función para borrar la tarea a través de la store. El problema que tendremos aquí (y en NewTask.vue) es que cuando modifiquemos la base de datos los cambios no se verán reflejados en el v-for de Home.vue porque no estamos modificando la variable tasks guardada en Home. Usad el emit para cambiar esto y evitar ningún page refresh.
-
+//FUNCIÓN PARA ELIMINAR UNA TAREA
 const deleteTask = async () => {
   await taskStore.deleteTask(props.task.id);
 };
 
+//FUNCIÓN PARA QUE APAREZCA EL MODAL DE CONFIRMARCIÓN ANTES DE ELIMINAR UNA TAREA
 const showModal = ref(false);
 const showModalToggle = () => {
   showModal.value = !showModal.value;

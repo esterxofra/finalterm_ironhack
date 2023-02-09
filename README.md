@@ -100,8 +100,6 @@ En resumen, la sección "construido con" es una excelente manera de brindar a lo
 
 #### Backlog
 
-Hola
-
 - [ ] Ej - Tarea a completar y mover a su respectivo dia de ejecucion
 - [ ] Tarea no completada
 - [x] Tarea Completada
@@ -139,16 +137,27 @@ Hola
 
 ###### Jueves 9, 2023
 
-- [ ] Despliegue: la aplicación será desplegada en Vercel.
-- [ ] Hacer la página de perfil del usuario.
+- [x] Despliegue: la aplicación será desplegada en Vercel.
+- [x] Buscar referencias de diseño.
+- [x] Hacer la página de perfil del usuario.
+- [x] Documentación: se mantendrá una ruta de trabajo en el readme del repositorio, actualizándolo diariamente.
+
 - [ ] Facilitar que el usuario pueda editar su perfil.
 - [ ] Investigar cómo hacer la lógica del reloj/cronómetro.
-- [ ] Documentación: se mantendrá una ruta de trabajo en el readme del repositorio, actualizándolo diariamente.
 
 #### Day Four
 
 ###### Viernes 10, 2023
 
+- [ ] Hacer la página de perfil del usuario.
+- [ ] Facilitar que el usuario pueda editar su perfil.
+- [ ] Documentación: se mantendrá una ruta de trabajo en el readme del repositorio, actualizándolo diariamente.
+
+#### Next week
+
+###### ..., 2023
+
+- [ ] Investigar cómo hacer la lógica del reloj/cronómetro.
 - [ ] Hacer un brainstorming de idea para el diseño de la aplicación.
 - [ ] Responsive design: la página será responsive y tendrá al menos dos versiones: mobile y desktop.
 - [ ] Estilo único: se creará un solo archivo de estilo (assets/style.css) y se insertará correctamente en main.js para tener acceso a las clases y los ids de los componentes.

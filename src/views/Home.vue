@@ -51,6 +51,7 @@ const getTasks = async () => {
 };
 
 // 3 setp --> abans no s'hagi muntat aquest component, cridem a la funció. un cop carreguem la pagina es vegin les tareas. aquesta funció es crida sols uan es crida al component.
+
 getTasks();
 
 onUpdated(() => {
