@@ -138,9 +138,9 @@ En resumen, la sección "construido con" es una excelente manera de brindar a lo
 ###### Jueves 9, 2023
 
 - [ ] Despliegue: la aplicación será desplegada en Vercel.
+- [ ] Hacer la página de perfil del usuario.
 - [ ] Facilitar que el usuario pueda editar su perfil.
 - [ ] Investigar cómo hacer la lógica del reloj/cronómetro.
-- [ ] Crear un componente para el footer de la aplicación.
 - [ ] Documentación: se mantendrá una ruta de trabajo en el readme del repositorio, actualizándolo diariamente.
 
 #### Day Four
@@ -150,6 +150,7 @@ En resumen, la sección "construido con" es una excelente manera de brindar a lo
 - [ ] Hacer un brainstorming de idea para el diseño de la aplicación.
 - [ ] Responsive design: la página será responsive y tendrá al menos dos versiones: mobile y desktop.
 - [ ] Estilo único: se creará un solo archivo de estilo (assets/style.css) y se insertará correctamente en main.js para tener acceso a las clases y los ids de los componentes.
+- [ ] Crear un componente para el footer de la aplicación.
 - [ ] Documentación: se mantendrá una ruta de trabajo en el readme del repositorio, actualizándolo diariamente.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
