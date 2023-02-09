@@ -24,6 +24,7 @@
       @childComplete="completeTaskSupabase"
       @editChild="editTaskSupabase"
     />
+    <!-- con el approach de Jarko deberíamos eliminar este emit @editChild="editTaskSupabase" -->
 
     <!-- aquest evento crida a la funció copletask del boto de taskitem mark as completed-->
   </div>
@@ -85,8 +86,6 @@ const completeTaskSupabase = async (taskObject) => {
 
 // FUNCIÓN PARA EDITAR UNA TAREA CONECTÁNDOSE A SUPERBASE
 const editTaskSupabase = async (editTaskObject) => {
-  console.log("click");
-  console.log(editTaskObject);
   await taskStore.editTaskSupabase(
     editTaskObject.title,
     editTaskObject.id,

@@ -51,6 +51,10 @@ export const useTaskStore = defineStore("tasks", () => {
       id: id,
     });
   };
+
+  // para traer las imagenes del supabase
+  // supabase.storage y en el from pondremos avatars porque es como se llama nuestro bucket y despues vendran otros metros que son los que tenemos que buscar
+
   return {
     tasksArr,
     fetchTasks,
