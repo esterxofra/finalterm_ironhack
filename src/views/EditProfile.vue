@@ -2,15 +2,19 @@
   <Nav />
   <div>
     <label for="name">Insert your name:</label>
-    <input type="text" name="name" v-model="newName" />
+    <input type="text" autocomplete="off" name="name" v-model="name" />
 
     <label for="username">Insert your username:</label>
-    <input type="email" name="username" v-model="newUsername" />
+    <input type="email" autocomplete="off" name="username" v-model="username" />
 
     <label for="website">Insert your website:</label>
-    <input type="text" name="website" v-model="newWebsite" />
+    <input type="text" autocomplete="off" name="website" v-model="website" />
 
-    <input class="input-file" ref="file" type="file" />
+    <input
+      @change="uploadAvatar"
+      type="file"
+      accept=".jpg, .jpeg, .png, .gif"
+    />
   </div>
 
   <button @click="editProfile">Save changes</button>
@@ -25,31 +29,76 @@ import { useRouter } from "vue-router";
 
 const userStore = useUserStore();
 
+const redirect = useRouter();
+
 const loading = ref(false);
 const username = ref(null);
 const website = ref(null);
 const avatar_url = ref(null);
 const name = ref(null);
 
-const newName = ref("");
-const newUsername = ref("");
-const newWebsite = ref("");
-const newAvatar_url = ref("");
+// UPLOAD IMAGEN
+const prop = defineProps(["path", "size"]);
+const { path, size } = toRefs(prop);
 
+const emit = defineEmits(["upload", "update:path"]);
+const uploading = ref(false);
+const src = ref("");
+const files = ref();
+// ----
 
+// funcion para editar perfil
 async function editProfile() {
-  await userStore.fetchUser();
-  await userStore.editProfile(
-    id: user.id,
-    name: newName.value
-    username: newUsername.value,website: newWebsite.value
-    avatar_url: newAvatar_url.value);
+  if (
+    website.value.length === 0 ||
+    username.value.length === 0 ||
+    name.value.length === 0
+  ) {
+    alert("The information can not be empty");
+  } else {
+    await userStore.fetchUser();
+    await userStore.editProfile(
+      username.value,
+      website.value,
+      avatar_url.value,
+      name.value
+    );
+    //La subida del archivo
+    //La recogida de la URL del archivo subido
+    //Automatización de la vinculación de la img de perfil con la url.
+    redirect.push({ path: "/account" });
+  }
 }
 
+// FUNCIÓN PARA SUBIR EL ARCHIVO:
+const uploadAvatar = async (evt) => {
+  files.value = evt.target.files;
+  try {
+    loading.value = true;
+    if (!files.value || files.value.length === 0) {
+      throw new Error("You must select an image to upload.");
+    }
 
-// title: currentTaskTitle.value,
-//       description: currentTaskDescription.value,
-//       id: props.task.id,
+    const file = files.value[0];
+    const fileExt = file.name.split(".").pop();
+    const filePath = `${Math.random()}.${fileExt}`;
+
+    let { error: uploadError } = await supabase.storage
+      .from("avatars")
+      .upload(filePath, file, { upsert: false });
+    avatar_url.value =
+      "https://ssweakhxvlswlzlvsqiq.supabase.co/storage/v1/object/public/avatars/" +
+      filePath;
+
+    if (uploadError) throw uploadError;
+    emit("update:path", filePath);
+    emit("upload");
+  } catch (error) {
+    alert(error.message);
+  } finally {
+    loading.value = false;
+  }
+};
 </script>
 
 <style></style>
