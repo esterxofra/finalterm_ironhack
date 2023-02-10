@@ -27,17 +27,16 @@ import { useUserStore } from "../stores/user";
 import Nav from "../components/Nav.vue";
 import { useRouter } from "vue-router";
 
-const userStore = useUserStore();
-
 // Router to push user to EditProfile
 const redirect = useRouter();
+
+const userStore = useUserStore();
 
 const loading = ref(false);
 const username = ref(null);
 const website = ref(null);
 const avatar_url = ref(null);
 const name = ref(null);
-const nick_name = ref(null);
 
 onMounted(() => {
   getProfile();
@@ -46,10 +45,9 @@ onMounted(() => {
 async function getProfile() {
   await userStore.fetchUser();
   username.value = userStore.profile.username;
-  website.value = useUserStore.profile.website;
   avatar_url.value = userStore.profile.avatar_url;
+  website.value = userStore.profile.website;
   name.value = userStore.profile.name;
-  nick_name.value = userStore.profile.nick_name;
 }
 
 async function signOut() {
@@ -64,9 +62,11 @@ async function signOut() {
   }
 }
 
+// FUNCIÓN PARA QUE EL BOTÓN EDIT PROFILE NOS PERMITA IR A LA PÁGINA DE EDICIÓN DE PERFIL:
 const editProfileButton = () => {
-  redirect.push({ path: "/account/editprofile" });
+  redirect.push({ path: "/editprofile" });
 };
+console.log(avatar_url);
 </script>
 
 <style>
