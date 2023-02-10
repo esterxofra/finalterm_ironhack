@@ -34,36 +34,22 @@ const name = ref(null);
 const newName = ref("");
 const newUsername = ref("");
 const newWebsite = ref("");
+const newAvatar_url = ref("");
+
 
 async function editProfile() {
   await userStore.fetchUser();
-  await userStore.editProfile("Jarko", "Garrido", "López", "Carlos");
+  await userStore.editProfile(
+    id: user.id,
+    name: newName.value
+    username: newUsername.value,website: newWebsite.value
+    avatar_url: newAvatar_url.value);
 }
 
-// const editTask = () => {
-//   if (
-//     currentTaskTitle.value.length === 0 ||
-//     currentTaskDescription.value.length === 0
-//     // Si no hay título o descripción, que me salte una alerta
-//   ) {
-//     alert("The task title or description is empty or just too short");
-//   } else {
-//     const newTaskEdited = {
-//       title: currentTaskTitle.value,
+
+// title: currentTaskTitle.value,
 //       description: currentTaskDescription.value,
 //       id: props.task.id,
-//     };
-//     emit("editChild", newTaskEdited);
-
-//     /*
-//     JARKO - EL HIJO LLAMA DIRECTAMENTE A LA BASE DE DATOS SIN PASAR POR EL PADRE:
-//     await taskStore.editTaskSupabase(
-//       currentTaskTitle.value,
-//       props.task.id,
-//       currentTaskDescription.value
-//       */
-//   }
-// };
 </script>
 
 <style></style>

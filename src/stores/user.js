@@ -93,26 +93,3 @@ export const useUserStore = defineStore("user", {
     ],
   },
 });
-
-// async function updateProfile() {
-//   try {
-//     loading.value = true
-//     const { user } = session.value
-
-//     const updates = {
-//       id: user.id,
-//       username: username.value,
-//       website: website.value,
-//       avatar_url: avatar_url.value,
-//       updated_at: new Date(),
-//     }
-
-//     let { error } = await supabase.from('profiles').upsert(updates)
-
-//     if (error) throw error
-//   } catch (error) {
-//     alert(error.message)
-//   } finally {
-//     loading.value = false
-//   }
-// }
