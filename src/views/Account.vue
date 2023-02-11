@@ -27,9 +27,10 @@ import { useUserStore } from "../stores/user";
 import Nav from "../components/Nav.vue";
 import { useRouter } from "vue-router";
 
-// Router to push user to EditProfile
+// Router to push user to EditProfile:
 const redirect = useRouter();
 
+// Declarar variable userStore:
 const userStore = useUserStore();
 
 const loading = ref(false);
@@ -38,10 +39,7 @@ const website = ref(null);
 const avatar_url = ref(null);
 const name = ref(null);
 
-onMounted(() => {
-  getProfile();
-});
-
+// Función para traer los datos de la store (editProfile)
 async function getProfile() {
   await userStore.fetchUser();
   username.value = userStore.profile.username;
@@ -49,6 +47,10 @@ async function getProfile() {
   website.value = userStore.profile.website;
   name.value = userStore.profile.name;
 }
+
+onMounted(() => {
+  getProfile();
+});
 
 async function signOut() {
   try {
@@ -66,7 +68,6 @@ async function signOut() {
 const editProfileButton = () => {
   redirect.push({ path: "/editprofile" });
 };
-console.log(avatar_url);
 </script>
 
 <style>

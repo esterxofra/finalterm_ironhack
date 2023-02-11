@@ -1,6 +1,6 @@
 <template>
   <Nav />
-  <div>
+  <form>
     <label for="name">Insert your name:</label>
     <input type="text" autocomplete="off" name="name" v-model="name" />
 
@@ -15,9 +15,9 @@
       type="file"
       accept=".jpg, .jpeg, .png, .gif"
     />
-  </div>
+  </form>
 
-  <button @click="editProfile">Save changes</button>
+  <button @click.prevent="editProfile">Save changes</button>
 </template>
 
 <script setup>
