@@ -17,7 +17,7 @@
     <h2>Website: {{ website }}</h2>
   </div>
 
-  <button @click="editProfileButton">Edit your profile</button>
+  <button @click.prevent="editProfileButton">Edit your profile</button>
 </template>
 
 <script setup>
@@ -39,6 +39,10 @@ const website = ref(null);
 const avatar_url = ref(null);
 const name = ref(null);
 
+onMounted(() => {
+  getProfile();
+});
+
 // Función para traer los datos de la store (editProfile)
 async function getProfile() {
   await userStore.fetchUser();
@@ -47,10 +51,6 @@ async function getProfile() {
   website.value = userStore.profile.website;
   name.value = userStore.profile.name;
 }
-
-onMounted(() => {
-  getProfile();
-});
 
 async function signOut() {
   try {

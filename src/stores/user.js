@@ -18,8 +18,8 @@ export const useUserStore = defineStore("user", {
           .match({ user_id: this.user.id });
 
         if (profile) this.profile = profile[0];
-        console.log("user in store: ", this.user);
-        console.log("profile in store: ", this.profile);
+        // console.log("user in store: ", this.user);
+        // console.log("profile in store: ", this.profile);
       }
     },
 
@@ -43,13 +43,13 @@ export const useUserStore = defineStore("user", {
     },
 
     //TRAER INFO DE LA TABLA DE PROFILES DE SUPABASE
-    async editProfile(username, website, avatar_url, name) {
+    async editProfile(username, website, name, avatar_url) {
       let { data, error } = await supabase
         .from("profiles")
         .update({
-          name: name,
-          website: website,
           username: username,
+          website: website,
+          name: name,
           avatar_url: avatar_url,
         })
         .match({ user_id: this.user.id });
@@ -74,7 +74,7 @@ export const useUserStore = defineStore("user", {
           .match({ user_id: this.user.id });
 
         if (profile) this.profile = profile[0];
-        console.log("profile in store: ", profile);
+        // console.log("profile in store: ", profile);
       }
     },
 

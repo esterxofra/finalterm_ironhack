@@ -46,9 +46,12 @@ const website = ref(null);
 const avatar_url = ref(null);
 const name = ref(null);
 
+onMounted(() => {
+  getProfile();
+});
+
 // FUNCIÓN PARA EDITAR EL PERFIL
 async function editProfile() {
-  console.log("Funciona!!1");
   if (
     website.value.length === 0 ||
     username.value.length === 0 ||
@@ -78,10 +81,6 @@ async function getProfile() {
   website.value = userStore.profile.website;
   name.value = userStore.profile.name;
 }
-
-onMounted(() => {
-  getProfile();
-});
 
 // DECLARAMOS LAS VARIABLES PARA ACTUALIZAR LA IMAGEN DE PERFIL
 const prop = defineProps(["path", "size"]);
