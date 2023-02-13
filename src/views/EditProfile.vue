@@ -1,23 +1,30 @@
 <template>
   <Nav />
+  <!-- FORMULARIO PARA EDITAR EL PERFIL DEL USUARIO -->
   <form>
+    <!-- EDITAR NOMBRE -->
     <label for="name">Insert your name:</label>
     <input type="text" autocomplete="off" name="name" v-model="name" />
 
+    <!-- EDITAR USERNAME -->
     <label for="username">Insert your username:</label>
     <input type="email" autocomplete="off" name="username" v-model="username" />
 
+    <!-- EDITAR WEBSITE -->
     <label for="website">Insert your website:</label>
     <input type="text" autocomplete="off" name="website" v-model="website" />
 
+    <!-- SUBIR UNA NUEVA IMAGEN AL PERFIL -->
     <input
       @change="uploadAvatar"
       type="file"
+      name="avatar_url"
       accept=".jpg, .jpeg, .png, .gif"
     />
-  </form>
 
-  <button @click.prevent="editProfile">Save changes</button>
+    <!-- BOTÓN PARA GUARDAR LOS CAMBIOS Y VOLVER A LA PÁGINA DE ACCOUNT -->
+    <button @click.prevent="editProfile">Save changes</button>
+  </form>
 </template>
 
 <script setup>
@@ -27,8 +34,10 @@ import { useUserStore } from "../stores/user";
 import Nav from "../components/Nav.vue";
 import { useRouter } from "vue-router";
 
+// DECLARAR VARIABLE USERSTORE PARA CONECTARNOS CON LA STORE
 const userStore = useUserStore();
 
+// DECLARAR VARIABLE PARA REDIRIGIRNOS A OTRA PÁGINA
 const redirect = useRouter();
 
 const loading = ref(false);
@@ -37,18 +46,9 @@ const website = ref(null);
 const avatar_url = ref(null);
 const name = ref(null);
 
-// UPLOAD IMAGEN
-const prop = defineProps(["path", "size"]);
-const { path, size } = toRefs(prop);
-
-const emit = defineEmits(["upload", "update:path"]);
-const uploading = ref(false);
-const src = ref("");
-const files = ref();
-// ----
-
-// funcion para editar perfil
+// FUNCIÓN PARA EDITAR EL PERFIL
 async function editProfile() {
+  console.log("Funciona!!1");
   if (
     website.value.length === 0 ||
     username.value.length === 0 ||
@@ -70,11 +70,19 @@ async function editProfile() {
   }
 }
 
-// FUNCIÓN PARA SUBIR EL ARCHIVO:
+// DECLARAMOS LAS VARIABLES PARA ACTUALIZAR LA IMAGEN DE PERFIL
+const prop = defineProps(["path", "size"]);
+const { path, size } = toRefs(prop);
+const emit = defineEmits(["upload", "update:path"]);
+const uploading = ref(false);
+const src = ref("");
+const files = ref();
+
+// FUNCIÓN PARA SUBIR Y ACTUALIZAR LA IMAGEN DE PERFIL
 const uploadAvatar = async (evt) => {
   files.value = evt.target.files;
   try {
-    loading.value = true;
+    uploading.value = true;
     if (!files.value || files.value.length === 0) {
       throw new Error("You must select an image to upload.");
     }
@@ -87,7 +95,7 @@ const uploadAvatar = async (evt) => {
       .from("avatars")
       .upload(filePath, file, { upsert: false });
     avatar_url.value =
-      "https://ssweakhxvlswlzlvsqiq.supabase.co/storage/v1/object/public/avatars/" +
+      "https://zkxclgazccxtzdbcydyq.supabase.co/storage/v1/object/public/avatars/" +
       filePath;
 
     if (uploadError) throw uploadError;
@@ -96,7 +104,7 @@ const uploadAvatar = async (evt) => {
   } catch (error) {
     alert(error.message);
   } finally {
-    loading.value = false;
+    uploading.value = false;
   }
 };
 </script>

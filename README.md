@@ -149,9 +149,9 @@ En resumen, la sección "construido con" es una excelente manera de brindar a lo
 
 ###### Viernes 10, 2023
 
-- [ ] Hacer la página de perfil del usuario.
-- [ ] Facilitar que el usuario pueda editar su perfil.
-- [ ] Documentación: se mantendrá una ruta de trabajo en el readme del repositorio, actualizándolo diariamente.
+- [x] Hacer la página de perfil del usuario.
+- [x] Facilitar que el usuario pueda editar su perfil.
+- [x] Documentación: se mantendrá una ruta de trabajo en el readme del repositorio, actualizándolo diariamente.
 
 #### Next week
 
