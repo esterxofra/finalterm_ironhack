@@ -70,6 +70,19 @@ async function editProfile() {
   }
 }
 
+// Función para traer los datos de la store (editProfile)
+async function getProfile() {
+  await userStore.fetchUser();
+  username.value = userStore.profile.username;
+  avatar_url.value = userStore.profile.avatar_url;
+  website.value = userStore.profile.website;
+  name.value = userStore.profile.name;
+}
+
+onMounted(() => {
+  getProfile();
+});
+
 // DECLARAMOS LAS VARIABLES PARA ACTUALIZAR LA IMAGEN DE PERFIL
 const prop = defineProps(["path", "size"]);
 const { path, size } = toRefs(prop);

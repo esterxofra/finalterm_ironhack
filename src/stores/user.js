@@ -41,6 +41,7 @@ export const useUserStore = defineStore("user", {
         ]);
       }
     },
+
     //TRAER INFO DE LA TABLA DE PROFILES DE SUPABASE
     async editProfile(username, website, avatar_url, name) {
       let { data, error } = await supabase
