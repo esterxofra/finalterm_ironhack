@@ -8,7 +8,7 @@
 
     <!-- EDITAR USERNAME -->
     <label for="username">Insert your username:</label>
-    <input type="email" autocomplete="off" name="username" v-model="username" />
+    <input type="text" autocomplete="off" name="username" v-model="username" />
 
     <!-- EDITAR WEBSITE -->
     <label for="website">Insert your website:</label>
@@ -18,7 +18,6 @@
     <input
       @change="uploadAvatar"
       type="file"
-      name="avatar_url"
       accept=".jpg, .jpeg, .png, .gif"
     />
 
@@ -50,6 +49,15 @@ onMounted(() => {
   getProfile();
 });
 
+// Función para traer los datos de la store (editProfile)
+async function getProfile() {
+  await userStore.fetchUser();
+  username.value = userStore.profile.username;
+  avatar_url.value = userStore.profile.avatar_url;
+  website.value = userStore.profile.website;
+  name.value = userStore.profile.name;
+}
+
 // FUNCIÓN PARA EDITAR EL PERFIL
 async function editProfile() {
   if (
@@ -73,18 +81,10 @@ async function editProfile() {
   }
 }
 
-// Función para traer los datos de la store (editProfile)
-async function getProfile() {
-  await userStore.fetchUser();
-  username.value = userStore.profile.username;
-  avatar_url.value = userStore.profile.avatar_url;
-  website.value = userStore.profile.website;
-  name.value = userStore.profile.name;
-}
-
 // DECLARAMOS LAS VARIABLES PARA ACTUALIZAR LA IMAGEN DE PERFIL
 const prop = defineProps(["path", "size"]);
 const { path, size } = toRefs(prop);
+
 const emit = defineEmits(["upload", "update:path"]);
 const uploading = ref(false);
 const src = ref("");
