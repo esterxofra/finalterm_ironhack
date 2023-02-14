@@ -1,37 +1,50 @@
 <template>
-  <div class="container">
-    <div>
-      <h3 class="header-title">Welcome to Wu Tasks</h3>
-      <p class="header-subtitle">Start Organizing your tasks todays!</p>
-      <p>Sign In</p>
-    </div>
+  <div class="signin-page">
+    <div class="image"></div>
 
-    <form @submit.prevent="signIn" class="form-sign-in">
-      <div class="form">
-        <div class="form-input">
-          <input
-            type="email"
-            class="input-field"
-            placeholder="example@gmail.com"
-            id="email"
-            v-model="email"
-            required
-          />
+    <div class="container">
+      <div>
+        <h1 class="header-title">Welcome to DONE</h1>
+        <p class="header-subtitle">
+          Start Organizing your daily goals with the tracker task!
+        </p>
+      </div>
+
+      <form @submit.prevent="signIn" class="form-sign-in">
+        <h2>Sign in to continue.</h2>
+
+        <div class="form">
+          <div class="form-input">
+            <label for="uname"><b>Email:</b></label>
+            <input
+              type="email"
+              name="uname"
+              class="input-field"
+              placeholder="example@gmail.com"
+              id="email"
+              v-model="email"
+              required
+            />
+          </div>
+
+          <div class="form-input">
+            <label for="psw"><b>Password:</b></label>
+            <input
+              type="password"
+              name="psw"
+              class="input-field"
+              placeholder="**********"
+              id="password"
+              v-model="password"
+              required
+            />
+          </div>
+
+          <button class="button" type="submit">Sign In</button>
         </div>
+      </form>
 
-        <div class="form-input">
-          <input
-            type="password"
-            class="input-field"
-            placeholder="**********"
-            id="password"
-            v-model="password"
-            required
-          />
-        </div>
-
-        <button class="button" type="submit">Sign In</button>
-
+      <div>
         <p>
           Don't have an account?
           <PersonalRouter
@@ -40,8 +53,9 @@
             class="sign-in-link"
           />
         </p>
+        <p>It takes less than a minute.</p>
       </div>
-    </form>
+    </div>
   </div>
 </template>
 
@@ -65,7 +79,7 @@ const redirect = useRouter();
 
 // Route Variables
 const route = "/auth/signup";
-const buttonText = "Sign Up";
+const buttonText = "Create an account.";
 
 // Arrow function to Signin user to supaBase
 const signIn = async () => {
