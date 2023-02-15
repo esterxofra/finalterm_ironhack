@@ -42,19 +42,19 @@
 
           <button class="button" type="submit">Sign In</button>
         </div>
-      </form>
 
-      <div>
-        <p>
-          Don't have an account?
-          <PersonalRouter
-            :route="route"
-            :buttonText="buttonText"
-            class="sign-in-link"
-          />
-        </p>
-        <p>It takes less than a minute.</p>
-      </div>
+        <div>
+          <p>
+            Don't have an account?
+            <PersonalRouter
+              :route="route"
+              :buttonText="buttonText"
+              class="sign-in-link"
+            />
+          </p>
+          <p>It takes less than a minute.</p>
+        </div>
+      </form>
     </div>
   </div>
 </template>

@@ -35,28 +35,29 @@ p, label {
     display: flex;
     width: 100vw;
     height: 100vh;
-    background-color: #A7D9D0;
+    background-color: #064025;
 }
 
 .image{
     display: flex;
+    justify-content: flex-start;
     align-items: center;
     background: url('./images/your-way.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     block-size: auto;
     width: 50%;
-    /* margin: 20px; */
-    /* border-radius: 25px; */
+    margin: 20px;
+    border-radius: 25px;
 }
 
 .container{
+    background-color: aquamarine;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     width: 50%;
-
+    gap: 5%
 }
 
 /* SignUp Component */
