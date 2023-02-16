@@ -12,48 +12,38 @@
         </div>
 
         <form @submit.prevent="signIn" class="form-sign-in">
-          <h2>Sign in to continue.</h2>
+          <label for="uname" class="label-title">Email:</label>
+          <input
+            type="email"
+            name="uname"
+            class="input-field"
+            placeholder="example@gmail.com"
+            id="email"
+            v-model="email"
+            required
+          />
 
-          <div class="form">
-            <div class="form-input">
-              <label for="uname"><b>Email:</b></label>
-              <input
-                type="email"
-                name="uname"
-                class="input-field"
-                placeholder="example@gmail.com"
-                id="email"
-                v-model="email"
-                required
-              />
-            </div>
+          <label for="psw" class="label-title">Password:</label>
+          <input
+            type="password"
+            name="psw"
+            class="input-field"
+            placeholder="**********"
+            id="password"
+            v-model="password"
+            required
+          />
 
-            <div class="form-input">
-              <label for="psw"><b>Password:</b></label>
-              <input
-                type="password"
-                name="psw"
-                class="input-field"
-                placeholder="**********"
-                id="password"
-                v-model="password"
-                required
-              />
-            </div>
+          <button class="button" type="submit">Sign In</button>
 
-            <button class="button" type="submit">Sign In</button>
-          </div>
-
-          <div>
-            <p>
-              Don't have an account?
-              <PersonalRouter
-                :route="route"
-                :buttonText="buttonText"
-                class="sign-in-link"
-              />
-            </p>
-          </div>
+          <p>
+            Don't have an account?
+            <PersonalRouter
+              :route="route"
+              :buttonText="buttonText"
+              class="sign-in-link"
+            />
+          </p>
         </form>
       </div>
     </div>
