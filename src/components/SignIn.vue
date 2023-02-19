@@ -1,6 +1,6 @@
 <template>
   <div class="signin-page">
-    <div class="image"></div>
+    <div class="background-image"></div>
 
     <div class="container">
       <div class="internal-container">

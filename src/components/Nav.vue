@@ -1,28 +1,18 @@
 <template>
-  <nav>
-    <!-- <PersonalRouter :route="route" :buttonText="buttonText" class="logo-link"/> -->
+  <nav class="nav-bar">
+    <img
+      class="logo"
+      src="../assets/images/focus-on-logo-black-and-white.png"
+      alt="Focus Logo"
+    />
+
     <router-link to="/"> Home </router-link>
 
-    <ul>
-      <li>
-        <router-link to="/">Task Manager</router-link>
-      </li>
+    <router-link to="/chronometer">Clock</router-link>
 
-      <li>
-        <router-link to="/account">Your Account</router-link>
-      </li>
-    </ul>
+    <router-link to="/account"> Account</router-link>
 
-    <div>
-      <ul>
-        <li class="log-out-welcome">
-          <p>Welcome, user</p>
-        </li>
-        <li>
-          <button @click="signOut" class="button">Log out</button>
-        </li>
-      </ul>
-    </div>
+    <button @click="signOut" class="button-log-out">Log out</button>
   </nav>
 </template>
 
@@ -58,24 +48,4 @@ const signOut = async () => {
 };
 </script>
 
-<style>
-.navbar-img {
-  width: 90px;
-}
-
-nav {
-  background-color: lightgray;
-  display: flex;
-  width: 100%;
-  justify-content: space-around;
-  align-items: center;
-}
-
-nav ul {
-  list-style: none;
-  padding-inline-start: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-</style>
+<style></style>
