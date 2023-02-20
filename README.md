@@ -153,15 +153,49 @@ En resumen, la sección "construido con" es una excelente manera de brindar a lo
 - [x] Facilitar que el usuario pueda editar su perfil.
 - [x] Documentación: se mantendrá una ruta de trabajo en el readme del repositorio, actualizándolo diariamente.
 
-#### Next week
+#### Day Five
 
-###### ..., 2023
+###### Lunes 20, 2023
 
-- [ ] Investigar cómo hacer la lógica del reloj/cronómetro.
+- [ ] Solucionar un problema con el supabase.
 - [ ] Hacer un brainstorming de idea para el diseño de la aplicación.
 - [ ] Responsive design: la página será responsive y tendrá al menos dos versiones: mobile y desktop.
 - [ ] Estilo único: se creará un solo archivo de estilo (assets/style.css) y se insertará correctamente en main.js para tener acceso a las clases y los ids de los componentes.
+- [ ] Estilar el navbar.
+- [ ] Estilar la página de tareas.
+- [ ] Documentación: se mantendrá una ruta de trabajo en el readme del repositorio, actualizándolo diariamente.
+
+#### Day Six
+
+###### Martes 21, 2023
+
+- [ ] Investigar cómo hacer la lógica del reloj/cronómetro.
 - [ ] Crear un componente para el footer de la aplicación.
+- [ ] Documentación: se mantendrá una ruta de trabajo en el readme del repositorio, actualizándolo diariamente.
+
+#### Day Seven
+
+###### Martes 21, 2023
+
+- [ ] Documentación: se mantendrá una ruta de trabajo en el readme del repositorio, actualizándolo diariamente.
+
+#### Day Eight
+
+###### Miércoles 22, 2023
+
+- [ ] Documentación: se mantendrá una ruta de trabajo en el readme del repositorio, actualizándolo diariamente.
+
+#### Day Nine
+
+###### Jueves 23, 2023
+
+- [ ] Documentación: se mantendrá una ruta de trabajo en el readme del repositorio, actualizándolo diariamente.
+
+#### Day Ten
+
+###### Viernes 24, 2023
+
+- [ ] Preparar presentación
 - [ ] Documentación: se mantendrá una ruta de trabajo en el readme del repositorio, actualizándolo diariamente.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
