@@ -1,5 +1,5 @@
 <template>
-  <div class="container-task-board">
+  <div class="container-board">
     <div class="card-task">
       <!-- TÍTULO DE LA TAREA -->
       <h2 :class="props.task.is_complete ? 'done' : 'pending'">

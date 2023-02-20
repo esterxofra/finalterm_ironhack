@@ -17,18 +17,21 @@
       <div class="title-task-board">
         <h2>Task Board</h2>
       </div>
-      <TaskItem
-        v-for="task in tasks"
-        :key="task.id"
-        :task="task"
-        @childComplete="completeTaskSupabase"
-        @editChild="editTaskSupabase"
-      />
+      <div class="container-task-board">
+        <TaskItem
+          v-for="task in tasks"
+          :key="task.id"
+          :task="task"
+          @childComplete="completeTaskSupabase"
+          @editChild="editTaskSupabase"
+        />
+      </div>
     </div>
     <!-- con el approach de Jarko deberíamos eliminar este emit @editChild="editTaskSupabase" -->
 
     <!-- aquest evento crida a la funció copletask del boto de taskitem mark as completed-->
   </div>
+  <Footer />
 </template>
 
 <script setup>
@@ -38,6 +41,7 @@ import { useRouter } from "vue-router";
 import Nav from "../components/Nav.vue";
 import NewTask from "../components/NewTask.vue";
 import TaskItem from "../components/TaskItem.vue";
+import Footer from "../components/Footer.vue";
 
 const taskStore = useTaskStore();
 

@@ -3,7 +3,7 @@
 *{
     margin: 0px;
     padding: 0px;
-    /* border: 1px solid red; */
+    border: 1px solid red;
 }
 
 h1 {
@@ -37,11 +37,16 @@ p, li{
 .navbar{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 20px 40px;
     background-color:whitesmoke;
     color:  rgba(17, 28, 47, 1);
-    border-bottom: 2px solid rgba(17, 28, 47, 1); 
+    border-bottom: 2px solid rgba(17, 28, 47, 1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 3vh;
+    z-index: 3;
 }
 .logo{
     border-radius: 0px;
@@ -142,31 +147,55 @@ p, li{
     display: flex;
     background-image: url(../assets/images/gradient-purple-focus.jpeg);
     background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
+    background-position: center;
+    background-size:cover;
     z-index: -1;
 }
 
 .new-task{
-    flex: 2;  
+    flex: 3;  
+    border-right: 2px solid rgba(17, 28, 47, 1); 
+
 }
 .task-board{
-    flex: 8;
+    flex: 7;
+}
+.container-task-board{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(auto, auto);
+    justify-content: center;
+    justify-items: center;
+    padding: 20px 40px;
+    margin-top: 12vh;
+}
+.title-task-board{
+    margin-top: 5vh;
+    padding: 20px 40px;
+    border-bottom: 2px solid rgba(17, 28, 47, 1);
+    position: fixed;
+    z-index: 2;
+    width: 100%;
 }
 
 /* NewTask view */
 
 .container-new-task{
- display: flex;
- flex-direction: column;
- height: 100vh;
- border-right: 2px solid rgba(17, 28, 47, 1); 
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    /* border-right: 2px solid rgba(17, 28, 47, 1);  */
 }
 .title-new-task{
-   padding: 20px 40px;
-   border-bottom: 2px solid rgba(17, 28, 47, 1); 
+    margin-top: 5vh;
+    padding: 20px 40px;
+    border-bottom: 2px solid rgba(17, 28, 47, 1); 
+    position: fixed;
+    z-index: 2;
+    width: 100%;
 }
 .form-new-task{
+    margin-top: 12vh;
     padding: 20px 40px;
     display: flex;
     flex-direction: column;
@@ -196,20 +225,7 @@ p, li{
 
 /* TaskItem View */
 
-.container-task-board{
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    border-right: 2px solid rgba(17, 28, 47, 1); 
-    background-color: pink;
-}
-.title-task-board{
-    padding: 20px 40px;
-    border-bottom: 2px solid rgba(17, 28, 47, 1); 
-}
-.board{
-    background-color: red;
-}
+/* NOTE: Find the title of the section in the home section */
 
 .card-task{
     width: 20vh;
@@ -226,7 +242,6 @@ hr{
     border: 1px solid rgba(17, 28, 47, 0.5);
 }
 .card-task li{
-    background-color: pink;
     margin-left: 20px;
 }
 .container-icons{
@@ -247,4 +262,23 @@ hr{
     font-size: 1em;
     border-radius: 0px;
     width: 60%;
+}
+
+/* Footer view */
+
+.footer-container{
+    display: flex;
+    justify-content: center;
+    padding: 20px 40px;
+    background-color:rgba(17, 28, 47, 1);
+    color:whitesmoke;
+    border-bottom: 2px solid rgba(17, 28, 47, 1); 
+    margin-top: auto;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.footer-container p{
+    color:whitesmoke;
+   
 }
