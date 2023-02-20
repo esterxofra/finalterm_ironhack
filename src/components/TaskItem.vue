@@ -1,32 +1,71 @@
 <template>
-  <div class="container">
-    <div>
+  <div class="container-task-board">
+    <div class="card-task">
       <!-- TÍTULO DE LA TAREA -->
-      <h3 :class="props.task.is_complete ? 'done' : 'pending'">
+      <h2 :class="props.task.is_complete ? 'done' : 'pending'">
         {{ task.title }}
-      </h3>
-
+      </h2>
+      <hr />
       <!-- DESCRIPCIÓN DE LA TAREA -->
+
+      <p>Description:</p>
+      <ul>
+        <li :class="props.task.is_complete ? 'done' : 'pending'">
+          {{ task.description }}
+        </li>
+      </ul>
+      <hr />
+
+      <p>Created on:</p>
+
       <p :class="props.task.is_complete ? 'done' : 'pending'">
         {{ task.description }}
       </p>
+
+      <hr />
+
+      <p>Deadline:</p>
+
+      <p :class="props.task.is_complete ? 'done' : 'pending'">
+        {{ task.description }}
+      </p>
+
+      <div class="container-icons">
+        <!-- BOTÓN PARA DESPLEGAR LA OPCIÓN DE EDITAR LA TAREA -->
+        <button @click="showInput" class="icon-button">
+          <img
+            class="icon-img"
+            src="../assets/icons/edit-icon-desktop.png"
+            alt="Edit task"
+          />
+        </button>
+
+        <!-- BOTÓN PARA MARCAR COMO COMPLETADA LA TAREA -->
+        <button @click="completedTask" class="icon-button">
+          <img
+            class="icon-img"
+            src="../assets/icons/completed-icon-desktop.png"
+            alt="Mark task as completed"
+          />
+        </button>
+
+        <!-- BOTÓN PARA ELIMINAR LA TAREA -->
+        <button @click="showModalToggle" class="icon-button">
+          <img
+            class="icon-img"
+            src="../assets/icons/bin-icon-desktop.png"
+            alt="Delete task"
+          />
+        </button>
+      </div>
     </div>
+  </div>
 
-    <!-- BOTÓN PARA ELIMINAR LA TAREA -->
-    <button @click="showModalToggle">Delete task</button>
-
-    <!-- BOTÓN PARA CONFIRMAR LA ELIMINACIÓN DE LA TAREA -->
-    <div class="modal" v-if="showModal">
-      <h2>Are you sure you want to delete this task?</h2>
-      <button @click="deleteTask">Yes, of course!</button>
-      <button @click="showModalToggle">Cancel</button>
-    </div>
-
-    <!-- BOTÓN PARA MARCAR COMO COMPLETADA LA TAREA -->
-    <button @click="completedTask">Mark task as completed</button>
-
-    <!-- BOTÓN PARA DESPLEGAR LA OPCIÓN DE EDITAR LA TAREA -->
-    <button @click="showInput">Edit task</button>
+  <!-- BOTÓN PARA CONFIRMAR LA ELIMINACIÓN DE LA TAREA -->
+  <div class="modal" v-if="showModal">
+    <h2>Are you sure you want to delete this task?</h2>
+    <button @click="deleteTask">Yes, of course!</button>
+    <button @click="showModalToggle">Cancel</button>
   </div>
 
   <!-- INPUTS Y BOTÓN PARA EDITAR LA TAREA -->

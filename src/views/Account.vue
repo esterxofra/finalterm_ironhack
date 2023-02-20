@@ -50,6 +50,7 @@ async function getProfile() {
   avatar_url.value = userStore.profile.avatar_url;
   website.value = userStore.profile.website;
   name.value = userStore.profile.name;
+  console.log(name.value);
 }
 
 async function signOut() {

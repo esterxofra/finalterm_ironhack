@@ -1,16 +1,16 @@
 <template>
-  <nav class="nav-bar">
+  <nav class="navbar">
     <img
       class="logo"
       src="../assets/images/focus-on-logo-black-and-white.png"
       alt="Focus Logo"
     />
 
-    <router-link to="/"> Home </router-link>
+    <router-link to="/" class="link"> Home </router-link>
 
-    <router-link to="/chronometer">Clock</router-link>
+    <router-link to="/chronometer" class="link">Clock</router-link>
 
-    <router-link to="/account"> Account</router-link>
+    <router-link to="/account" class="link"> Account</router-link>
 
     <button @click="signOut" class="button-log-out">Log out</button>
   </nav>

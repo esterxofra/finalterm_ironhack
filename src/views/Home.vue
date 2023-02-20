@@ -1,13 +1,9 @@
 <template>
+  <Nav />
   <div class="wrapper">
-    <Nav />
-
-    <div class="content">
-      <h3>Your account:</h3>
-      <router-link to="/account">Account</router-link>
+    <div class="new-task">
+      <NewTask />
     </div>
-    <NewTask />
-    <h1>Tasks:</h1>
 
     <!-- 4 step: key standard de v-for i task es lo que li volem passar . task seria tot. id unic-->
 
@@ -17,13 +13,18 @@
 
     <!-- la task a supabase te com estat sempre false pero necessitem una funció que vagi a superbase per acualitzar l'estat de la tasca false true -->
 
-    <TaskItem
-      v-for="task in tasks"
-      :key="task.id"
-      :task="task"
-      @childComplete="completeTaskSupabase"
-      @editChild="editTaskSupabase"
-    />
+    <div class="task-board">
+      <div class="title-task-board">
+        <h2>Task Board</h2>
+      </div>
+      <TaskItem
+        v-for="task in tasks"
+        :key="task.id"
+        :task="task"
+        @childComplete="completeTaskSupabase"
+        @editChild="editTaskSupabase"
+      />
+    </div>
     <!-- con el approach de Jarko deberíamos eliminar este emit @editChild="editTaskSupabase" -->
 
     <!-- aquest evento crida a la funció copletask del boto de taskitem mark as completed-->

@@ -71,9 +71,10 @@ async function editProfile() {
     await userStore.editProfile(
       username.value,
       website.value,
-      avatar_url.value,
-      name.value
+      name.value,
+      avatar_url.value
     );
+    console.log(avatar_url.value);
     //La subida del archivo
     //La recogida de la URL del archivo subido
     //Automatización de la vinculación de la img de perfil con la url.
@@ -107,7 +108,7 @@ const uploadAvatar = async (evt) => {
       .from("avatars")
       .upload(filePath, file, { upsert: false });
     avatar_url.value =
-      "https://zkxclgazccxtzdbcydyq.supabase.co/storage/v1/object/public/avatars/" +
+      "https://ssweakhxvlswlzlvsqiq.supabase.co/storage/v1/object/public/avatars/" +
       filePath;
 
     if (uploadError) throw uploadError;

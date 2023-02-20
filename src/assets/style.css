@@ -1,10 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap');
 
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    border: 1px solid red;
+    margin: 0px;
+    padding: 0px;
+    /* border: 1px solid red; */
 }
 
 h1 {
@@ -15,8 +14,16 @@ h1 {
     margin-bottom: 0.5vh;
 } 
 
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2em ;
+    line-height: 1.5em;
+    color: rgba(17, 28, 47, 1); 
+    margin-bottom: 0.5vh;
+} 
 
-p{
+
+p, li{
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
     font-size: 1em ;
@@ -27,16 +34,45 @@ p{
 
 /* Nav Component */
 
-.nav-bar{
+.navbar{
     display: flex;
-    justify-content: space-around;
-    background-color: pink;
-    width: 100vw;
-    
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+    background-color:whitesmoke;
+    color:  rgba(17, 28, 47, 1);
+    border-bottom: 2px solid rgba(17, 28, 47, 1); 
 }
-
 .logo{
     border-radius: 0px;
+    width: 12%;
+}
+.link{
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1.2em ;
+    line-height: 1.5em;
+    color:  rgba(17, 28, 47, 1); 
+}
+.link:hover{
+    color: rgba(14, 253, 6, 1);
+    transition: 0.3s ease;
+}
+.button-log-out{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1.2em ;
+    line-height: 1.5em;
+    color:  rgba(17, 28, 47, 1); 
+    border: 2px solid rgba(17, 28, 47, 1);
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+.button-log-out:hover{
+    background-color: rgba(14, 253, 6, 1);
+    color:  rgba(17, 28, 47, 1); 
+    transition: 0.3s ease;
 }
 
 /* SignIn Component */
@@ -102,5 +138,113 @@ p{
 /* SignUp Component */
 
 /* Home view */
+.wrapper{
+    display: flex;
+    background-image: url(../assets/images/gradient-purple-focus.jpeg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    z-index: -1;
+}
 
-/* Account View */
+.new-task{
+    flex: 2;  
+}
+.task-board{
+    flex: 8;
+}
+
+/* NewTask view */
+
+.container-new-task{
+ display: flex;
+ flex-direction: column;
+ height: 100vh;
+ border-right: 2px solid rgba(17, 28, 47, 1); 
+}
+.title-new-task{
+   padding: 20px 40px;
+   border-bottom: 2px solid rgba(17, 28, 47, 1); 
+}
+.form-new-task{
+    padding: 20px 40px;
+    display: flex;
+    flex-direction: column;
+}
+.label-task{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1em ;
+    line-height: 1.5em;
+    color:  rgba(17, 28, 47, 1); 
+    margin-bottom: 0.5vh;
+}
+.button-task{
+    width: 100%;
+    height: 45px;
+    background-color: black;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 1em ;
+    color: white;
+}
+.button-task:hover{
+    background-color: rgba(14, 253, 6, 1);
+    color:  rgba(17, 28, 47, 1); 
+    transition: 0.3s ease;
+}
+
+/* TaskItem View */
+
+.container-task-board{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    border-right: 2px solid rgba(17, 28, 47, 1); 
+    background-color: pink;
+}
+.title-task-board{
+    padding: 20px 40px;
+    border-bottom: 2px solid rgba(17, 28, 47, 1); 
+}
+.board{
+    background-color: red;
+}
+
+.card-task{
+    width: 20vh;
+    border: 2px solid rgba(17, 28, 47, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 2%;
+    margin: 20px 40px 80px 40px;
+    border-radius: 15px;
+}
+hr{
+    border: 1px solid rgba(17, 28, 47, 0.5);
+}
+.card-task li{
+    background-color: pink;
+    margin-left: 20px;
+}
+.container-icons{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+.icon-button{
+    
+    width: calc(33.33% - 10px); 
+    font-size: 20%;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0);
+    border: 0ch;
+}
+
+.icon-button img{
+    font-size: 1em;
+    border-radius: 0px;
+    width: 60%;
+}
