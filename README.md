@@ -157,20 +157,24 @@ En resumen, la sección "construido con" es una excelente manera de brindar a lo
 
 ###### Lunes 20, 2023
 
-- [ ] Solucionar un problema con el supabase.
-- [ ] Hacer un brainstorming de idea para el diseño de la aplicación.
-- [ ] Responsive design: la página será responsive y tendrá al menos dos versiones: mobile y desktop.
-- [ ] Estilo único: se creará un solo archivo de estilo (assets/style.css) y se insertará correctamente en main.js para tener acceso a las clases y los ids de los componentes.
-- [ ] Estilar el navbar.
-- [ ] Estilar la página de tareas.
-- [ ] Documentación: se mantendrá una ruta de trabajo en el readme del repositorio, actualizándolo diariamente.
+- [x] Solucionar un problema con el supabase.
+- [x] Hacer un brainstorming de idea para el diseño de la aplicación (figma)
+- [x] Crear un logo para la aplicación (FocusON)
+- [x] Estilo único: se creará un solo archivo de estilo (assets/style.css) y se insertará correctamente en main.js para tener acceso a las clases y los ids de los componentes.
+- [x] Estilar el navbar.
+- [x] Estilar la página de tareas (desktop)
+- [x] Crear un componente para el footer de la aplicación.
+- [x] Documentación: se mantendrá una ruta de trabajo en el readme del repositorio, actualizándolo diariamente.
 
 #### Day Six
 
 ###### Martes 21, 2023
 
-- [ ] Investigar cómo hacer la lógica del reloj/cronómetro.
-- [ ] Crear un componente para el footer de la aplicación.
+- [ ] Estilar sign in page
+- [ ] Estilar sign up page
+- [ ] Estilar la página de tareas (mobile)
+- [ ] Estilar account page
+- [ ] Estilar edit page
 - [ ] Documentación: se mantendrá una ruta de trabajo en el readme del repositorio, actualizándolo diariamente.
 
 #### Day Seven
