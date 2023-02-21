@@ -19,7 +19,7 @@
       <p>Created on:</p>
 
       <p :class="props.task.is_complete ? 'done' : 'pending'">
-        {{ task.description }}
+        {{ task.inserted_at }}
       </p>
 
       <hr />
@@ -27,7 +27,7 @@
       <p>Deadline:</p>
 
       <p :class="props.task.is_complete ? 'done' : 'pending'">
-        {{ task.description }}
+        {{ task.deadline }}
       </p>
 
       <div class="container-icons">
@@ -69,8 +69,8 @@
   </div>
 
   <!-- INPUTS Y BOTÓN PARA EDITAR LA TAREA -->
-  <div v-if="inputContainer">
-    <div>
+  <div class="container-edit" v-if="inputContainer">
+    <div class="container-edit-form">
       <label for="title">Insert or modify your current title:</label>
       <input
         type="text"
@@ -78,8 +78,6 @@
         v-model="currentTaskTitle"
         placeholder="Insert new title..."
       />
-    </div>
-    <div>
       <label for="description"
         >Insert or modify your current description:</label
       >
@@ -89,8 +87,8 @@
         v-model="currentTaskDescription"
         placeholder="Insert new description..."
       />
+      <button @click="editTask">Edit Task</button>
     </div>
-    <button @click="editTask">Edit Task</button>
   </div>
 </template>
 
@@ -122,11 +120,17 @@ const completedTask = () => {
 const inputContainer = ref(false);
 const currentTaskTitle = ref("");
 const currentTaskDescription = ref("");
+const currentTaskInserted = ref("");
+const currentTaskDeadline = ref("");
 
 const showInput = () => {
-  inputContainer.value = !inputContainer.value;
-  currentTaskTitle.value = props.task.title;
-  currentTaskDescription.value = props.task.description;
+  if (!props.task.is_complete) {
+    inputContainer.value = !inputContainer.value;
+    currentTaskTitle.value = props.task.title;
+    currentTaskDescription.value = props.task.description;
+    currentTaskInserted.value = props.task.inserted_at;
+    currentTaskDeadline.value = props.task.deadline;
+  }
 };
 
 // FUNCIÓN CON VALIDACIÓN, ENVÍO DE DATOS Y EVENTOS MEDIANTE EMIT
@@ -142,11 +146,14 @@ const editTask = () => {
       title: currentTaskTitle.value,
       description: currentTaskDescription.value,
       id: props.task.id,
+      inserted_at: props.task.inserted_at,
+      deadline: deadline,
     };
     emit("editChild", newTaskEdited);
+    inputContainer.value = !inputContainer.value;
 
     /*
-    JARKO - EL HIJO LLAMA DIRECTAMENTE A LA BASE DE DATOS SIN PASAR POR EL PADRE: 
+    JARKO - EL HIJO LLAMA DIRECTAMENTE A LA BASE DE DATOS SIN PASAR POR EL PADRE:
     await taskStore.editTaskSupabase(
       currentTaskTitle.value,
       props.task.id,

@@ -26,6 +26,8 @@ export const useTaskStore = defineStore("tasks", () => {
         title: title,
         is_complete: false,
         description: description,
+        inserted_at: inserted_at,
+        deadline: deadline,
       },
     ]);
   };
@@ -46,7 +48,12 @@ export const useTaskStore = defineStore("tasks", () => {
   const editTaskSupabase = async (title, id, description) => {
     let { data: tasks, error } = await supabase
       .from("tasks")
-      .update({ title: title, description: description })
+      .update({
+        title: title,
+        description: description,
+        inserted_at: inserted_at,
+        deadline: deadline,
+      })
       .match({ id: id });
   };
 

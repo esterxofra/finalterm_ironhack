@@ -1,9 +1,5 @@
 <template>
   <div class="container-new-task">
-    <div class="title-new-task">
-      <h2>New Task</h2>
-    </div>
-
     <div v-if="showErrorMessage">
       <p class="error-text">{{ errorMessage }}</p>
     </div>
@@ -13,7 +9,7 @@
       <input
         type="text"
         name="new-title"
-        placeholder="Add a Task Title - Listen to Kendrick Lamar"
+        placeholder="Add a Task Title"
         v-model="name"
       />
 
@@ -21,7 +17,7 @@
       <input
         type="text"
         name="new-description"
-        placeholder="Add a Task Description - Look up Kendrick Lamar's FEAR album on spotify and listen to the whole album."
+        placeholder="Add a Task Description"
         v-model="description"
       />
 
@@ -29,10 +25,10 @@
       <input type="text" name="new-category" />
 
       <label for="created-on" class="label-task">Created on:</label>
-      <input type="date" name="created-on" />
+      <input type="date" name="created-on" v-model="description" />
 
       <label for="deadline" class="label-task">Deadline:</label>
-      <input type="date" name="deadline" />
+      <input type="date" name="deadline" v-model="description" />
 
       <button @click="addTask" class="button-task">Add task</button>
     </div>

@@ -1,21 +1,19 @@
 <template>
   <Nav />
+
   <div class="wrapper">
     <div class="new-task">
-      <NewTask />
+      <div class="title-new-task">
+        <h2>New Task</h2>
+      </div>
+      <div class="container-new-task">
+        <NewTask />
+      </div>
     </div>
 
-    <!-- 4 step: key standard de v-for i task es lo que li volem passar . task seria tot. id unic-->
-
-    <!-- aixo :task="task" es prop perque es el pare que es tot l'array qui li passa info al fill (taskitem) perque es el component que crido a home -->
-
-    <!-- aixo es un emit @child-complete="completeTaskSupabase" perque li pasem una funció que tenim en el pare (home) -->
-
-    <!-- la task a supabase te com estat sempre false pero necessitem una funció que vagi a superbase per acualitzar l'estat de la tasca false true -->
-
-    <div class="task-board">
+    <div class="tasks-board">
       <div class="title-task-board">
-        <h2>Task Board</h2>
+        <h2>Tasks Board</h2>
       </div>
       <div class="container-task-board">
         <TaskItem
@@ -27,12 +25,21 @@
         />
       </div>
     </div>
-    <!-- con el approach de Jarko deberíamos eliminar este emit @editChild="editTaskSupabase" -->
-
-    <!-- aquest evento crida a la funció copletask del boto de taskitem mark as completed-->
   </div>
   <Footer />
+  <Menu />
 </template>
+
+<!-- 4 step: key standard de v-for i task es lo que li volem passar . task seria tot. id unic-->
+
+<!-- aixo :task="task" es prop perque es el pare que es tot l'array qui li passa info al fill (taskitem) perque es el component que crido a home -->
+
+<!-- aixo es un emit @child-complete="completeTaskSupabase" perque li pasem una funció que tenim en el pare (home) -->
+
+<!-- la task a supabase te com estat sempre false pero necessitem una funció que vagi a superbase per acualitzar l'estat de la tasca false true -->
+<!-- con el approach de Jarko deberíamos eliminar este emit @editChild="editTaskSupabase" -->
+
+<!-- aquest evento crida a la funció copletask del boto de taskitem mark as completed-->
 
 <script setup>
 import { ref, onUpdated } from "vue";
@@ -42,6 +49,7 @@ import Nav from "../components/Nav.vue";
 import NewTask from "../components/NewTask.vue";
 import TaskItem from "../components/TaskItem.vue";
 import Footer from "../components/Footer.vue";
+import Menu from "../components/Menu.vue";
 
 const taskStore = useTaskStore();
 
@@ -70,10 +78,10 @@ onUpdated(() => {
 // com aquesta funcio completeTaskSupabase te un parametre que es taskObject quan cridem l'emit li hem de pasar un argument que es la taska que hem rebut desde props (taskttems) linea 39
 
 const completeTaskSupabase = async (taskObject) => {
-  console.log("click");
-  console.log(taskObject); // esto es un objeto que incluye description, id, inserted_at, is_complete, title, user_id
-  console.log(taskObject.id);
-  console.log(taskObject.is_complete); //false
+  // console.log("click");
+  // console.log(taskObject); // esto es un objeto que incluye description, id, inserted_at, is_complete, title, user_id
+  // console.log(taskObject.id);
+  // console.log(taskObject.is_complete); //false
 
   // taskObject aixo es el prop.task que li passes per taskitem (on cridem l'emit)
 
@@ -95,7 +103,9 @@ const editTaskSupabase = async (editTaskObject) => {
   await taskStore.editTaskSupabase(
     editTaskObject.title,
     editTaskObject.id,
-    editTaskObject.description
+    editTaskObject.description,
+    editTaskObject.inserted_at,
+    editTaskObject.deadline
   );
 };
 </script>
