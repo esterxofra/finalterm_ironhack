@@ -236,6 +236,11 @@ p, li{
     margin: 20px 40px 80px 40px;
     border-radius: 15px;
 }
+.category{
+    display: flex;
+    justify-content: flex-end;
+    border: 1px solid rgba(17, 28, 47, 1);
+}
 hr{
     border: 1px solid rgba(17, 28, 47, 0.5);
 }

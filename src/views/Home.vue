@@ -103,9 +103,10 @@ const editTaskSupabase = async (editTaskObject) => {
   await taskStore.editTaskSupabase(
     editTaskObject.title,
     editTaskObject.id,
-    editTaskObject.description,
     editTaskObject.inserted_at,
-    editTaskObject.deadline
+    editTaskObject.description,
+    editTaskObject.deadline,
+    editTaskObject.category
   );
 };
 </script>

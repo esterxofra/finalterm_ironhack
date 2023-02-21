@@ -1,6 +1,12 @@
 <template>
   <div class="container-board">
     <div class="card-task">
+      <div class="category">
+        <p :class="props.task.is_complete ? 'done' : 'pending'">
+          {{ task.category }}
+        </p>
+      </div>
+
       <!-- TÍTULO DE LA TAREA -->
       <h2 :class="props.task.is_complete ? 'done' : 'pending'">
         {{ task.title }}
@@ -78,6 +84,7 @@
         v-model="currentTaskTitle"
         placeholder="Insert new title..."
       />
+
       <label for="description"
         >Insert or modify your current description:</label
       >
@@ -87,6 +94,18 @@
         v-model="currentTaskDescription"
         placeholder="Insert new description..."
       />
+
+      <label for="category">Insert or modify your current category:</label>
+      <input
+        type="text"
+        name="category"
+        v-model="currentTaskCategory"
+        placeholder="Insert new category..."
+      />
+
+      <label for="deadline">Deadline:</label>
+      <input type="date" name="deadline" v-model="currentTaskDeadline" />
+
       <button @click="editTask">Edit Task</button>
     </div>
   </div>
@@ -120,16 +139,16 @@ const completedTask = () => {
 const inputContainer = ref(false);
 const currentTaskTitle = ref("");
 const currentTaskDescription = ref("");
-const currentTaskInserted = ref("");
 const currentTaskDeadline = ref("");
+const currentTaskCategory = ref("");
 
 const showInput = () => {
   if (!props.task.is_complete) {
     inputContainer.value = !inputContainer.value;
     currentTaskTitle.value = props.task.title;
     currentTaskDescription.value = props.task.description;
-    currentTaskInserted.value = props.task.inserted_at;
     currentTaskDeadline.value = props.task.deadline;
+    currentTaskCategory.value = props.task.category;
   }
 };
 
@@ -137,17 +156,19 @@ const showInput = () => {
 const editTask = () => {
   if (
     currentTaskTitle.value.length === 0 ||
-    currentTaskDescription.value.length === 0
+    currentTaskDescription.value.length === 0 ||
+    currentTaskDeadline.value.length === 0 ||
+    currentTaskCategory.value.length === 0
     // Si no hay título o descripción, que me salte una alerta
   ) {
     alert("The task title or description is empty or just too short");
   } else {
     const newTaskEdited = {
+      id: props.task.id,
       title: currentTaskTitle.value,
       description: currentTaskDescription.value,
-      id: props.task.id,
-      inserted_at: props.task.inserted_at,
-      deadline: deadline,
+      deadline: currentTaskDeadline.value,
+      category: currentTaskCategory.value,
     };
     emit("editChild", newTaskEdited);
     inputContainer.value = !inputContainer.value;

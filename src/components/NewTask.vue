@@ -22,13 +22,15 @@
       />
 
       <label for="new-category" class="label-task">Category:</label>
-      <input type="text" name="new-category" />
-
-      <label for="created-on" class="label-task">Created on:</label>
-      <input type="date" name="created-on" v-model="description" />
+      <input
+        type="text"
+        name="new-category"
+        placeholder="Add a Task Category"
+        v-model="category"
+      />
 
       <label for="deadline" class="label-task">Deadline:</label>
-      <input type="date" name="deadline" v-model="description" />
+      <input type="date" name="deadline" v-model="deadline" />
 
       <button @click="addTask" class="button-task">Add task</button>
     </div>
@@ -44,6 +46,8 @@ const taskStore = useTaskStore();
 // variables para los valors de los inputs
 const name = ref("");
 const description = ref("");
+const deadline = ref("");
+const category = ref("");
 
 // constant to save a variable that holds an initial false boolean value for the errorMessage container that is conditionally displayed depending if the input field is empty
 const showErrorMessage = ref(false);
@@ -53,7 +57,12 @@ const errorMessage = ref(null);
 
 // Arrow function para crear tareas.
 const addTask = () => {
-  if (name.value.length === 0 || description.value.length === 0) {
+  if (
+    name.value.length === 0 ||
+    description.value.length === 0 ||
+    deadline.value.length === 0 ||
+    category.value.length === 0
+  ) {
     // Primero comprobamos que ningún campo del input esté vacío y lanzamos el error con un timeout para informar al user.
 
     showErrorMessage.value = true;
@@ -64,9 +73,16 @@ const addTask = () => {
   } else {
     // Aquí mandamos los valores a la store para crear la nueva Task. Esta parte de la función tenéis que refactorizarla para que funcione con emit y el addTask del store se llame desde Home.vue.
 
-    taskStore.addTask(name.value, description.value);
+    taskStore.addTask(
+      name.value,
+      description.value,
+      deadline.value,
+      category.value
+    );
     name.value = "";
     description.value = "";
+    deadline.value = "";
+    category.value = "";
   }
 };
 </script>

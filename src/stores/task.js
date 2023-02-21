@@ -18,16 +18,23 @@ export const useTaskStore = defineStore("tasks", () => {
     return tasksArr.value;
   };
   // añadir tareas de supabase
-  const addTask = async (title, description) => {
+  const addTask = async (
+    title,
+    inserted_at,
+    description,
+    deadline,
+    category
+  ) => {
     console.log(useUserStore().user.id);
     const { data, error } = await supabase.from("tasks").insert([
       {
         user_id: useUserStore().user.id,
         title: title,
         is_complete: false,
-        description: description,
         inserted_at: inserted_at,
+        description: description,
         deadline: deadline,
+        category: category,
       },
     ]);
   };
@@ -45,14 +52,20 @@ export const useTaskStore = defineStore("tasks", () => {
 
   // RECAP! EDITTASKSUPABASE ES UNA FUNCIÓN ASYNC CON 3 PARÁMETROS QUE TIENE QUE GENERAR UNOS DATOS Y DEVOLVERNOS EN TODO CASO UN ERROR { data: tasks, error }. AWAIT (ESPERA QUE LA BASE DE DATOS FUNCIONE). ENTONCES .FROM . UPDATE . MATCH SON MÉTIDOS PROPIOS DE LAS BASES DE DATOS (EN ESTE CASO SUPABASE) QUE NOS PERMITE ACTUALIZAR EL TIITULO Y LA DESCRIPCIÓN DE LA BASE DE DATOS DE TASK. PERO A QUIÉN SE LO QUIERO CAMBIAR? A AQUEL QUE HAGA MATCH O SEA EQ AL ID.
 
-  const editTaskSupabase = async (title, id, description) => {
+  const editTaskSupabase = async (
+    title,
+    id,
+    description,
+    deadline,
+    category
+  ) => {
     let { data: tasks, error } = await supabase
       .from("tasks")
       .update({
         title: title,
         description: description,
-        inserted_at: inserted_at,
         deadline: deadline,
+        category: category,
       })
       .match({ id: id });
   };
