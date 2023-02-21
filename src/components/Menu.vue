@@ -14,6 +14,8 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import NewTask from "../components/NewTask.vue";
+</script>
 
 <style></style>

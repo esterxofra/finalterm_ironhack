@@ -69,9 +69,17 @@
 
   <!-- BOTÓN PARA CONFIRMAR LA ELIMINACIÓN DE LA TAREA -->
   <div class="modal" v-if="showModal">
-    <h2>Are you sure you want to delete this task?</h2>
-    <button @click="deleteTask">Yes, of course!</button>
-    <button @click="showModalToggle">Cancel</button>
+    <div class="modal-form">
+      <h2>Are you sure you want to delete this task?</h2>
+      <div class="confirmation">
+        <button class="button-confirmation" @click="deleteTask">
+          Yes, of course!
+        </button>
+        <button class="button-confirmation" @click="showModalToggle">
+          Cancel
+        </button>
+      </div>
+    </div>
   </div>
 
   <!-- INPUTS Y BOTÓN PARA EDITAR LA TAREA -->

@@ -1,7 +1,5 @@
 <template>
   <div class="signin-page">
-    <div class="background-image"></div>
-
     <div class="container">
       <div class="internal-container">
         <div>

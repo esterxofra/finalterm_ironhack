@@ -24,14 +24,18 @@
     <!-- BOTÓN PARA GUARDAR LOS CAMBIOS Y VOLVER A LA PÁGINA DE ACCOUNT -->
     <button @click.prevent="editProfile">Save changes</button>
   </form>
+  <Footer />
+  <Menu />
 </template>
 
 <script setup>
 import { supabase } from "../supabase";
 import { onMounted, ref, toRefs } from "vue";
 import { useUserStore } from "../stores/user";
-import Nav from "../components/Nav.vue";
 import { useRouter } from "vue-router";
+import Nav from "../components/Nav.vue";
+import Footer from "../components/Footer.vue";
+import Menu from "../components/Menu.vue";
 
 // DECLARAR VARIABLE USERSTORE PARA CONECTARNOS CON LA STORE
 const userStore = useUserStore();

@@ -170,32 +170,30 @@ En resumen, la sección "construido con" es una excelente manera de brindar a lo
 
 ###### Martes 21, 2023
 
-- [ ] Estilar sign in page
-- [ ] Estilar sign up page
-- [ ] Estilar la página de tareas (mobile)
-- [ ] Estilar account page
-- [ ] Estilar edit page
-- [ ] Documentación: se mantendrá una ruta de trabajo en el readme del repositorio, actualizándolo diariamente.
+- [x] Estilar la página de tareas (mobile)
+- [x] Documentación: se mantendrá una ruta de trabajo en el readme del repositorio, actualizándolo diariamente.
 
 #### Day Seven
 
-###### Martes 21, 2023
+###### Miércoles 22, 2023
 
+- [ ] Resolver dudas (add new task, edit new task, error footer, añadir tareas mobile)
+- [ ] Estilar sign in
+- [ ] Estilar sign up
+- [ ] Estilar últimos detalles de la página de tareas
 - [ ] Documentación: se mantendrá una ruta de trabajo en el readme del repositorio, actualizándolo diariamente.
 
 #### Day Eight
 
-###### Miércoles 22, 2023
+###### Jueves 23, 2023
 
+- [ ] Estilar profile
+- [ ] Estilar edit profile
+- [ ] Hacer el clock
+- [ ] Estilar clock
 - [ ] Documentación: se mantendrá una ruta de trabajo en el readme del repositorio, actualizándolo diariamente.
 
 #### Day Nine
-
-###### Jueves 23, 2023
-
-- [ ] Documentación: se mantendrá una ruta de trabajo en el readme del repositorio, actualizándolo diariamente.
-
-#### Day Ten
 
 ###### Viernes 24, 2023
 

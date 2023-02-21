@@ -65,7 +65,8 @@ p, li{
     color:  rgba(17, 28, 47, 1); 
 }
 .link:hover{
-    color: rgba(14, 253, 6, 1);
+    background-color: whitesmoke;
+    color:  rgba(17, 28, 47, 1); 
     transition: 0.3s ease;
 }
 .button-log-out{
@@ -73,13 +74,14 @@ p, li{
     font-weight: 600;
     font-size: 1.2em ;
     line-height: 1.5em;
-    color:  rgba(17, 28, 47, 1); 
+    color: white;
+    background-color:  rgba(17, 28, 47, 1); 
     border: 2px solid rgba(17, 28, 47, 1);
     border-radius: 5px;
     padding: 5px 10px;
 }
 .button-log-out:hover{
-    background-color: rgba(14, 253, 6, 1);
+    background-color: whitesmoke;
     color:  rgba(17, 28, 47, 1); 
     transition: 0.3s ease;
 }
@@ -91,18 +93,6 @@ p, li{
     width: 100vw;
     height: 100vh;
     background-color: whitesmoke;
-}
-
-.background-image{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    background: url('./images/your-way.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    block-size: auto;
-    width: 50%;
-    margin: 20px; 
 }
 
 .container{
@@ -218,7 +208,7 @@ p, li{
     color: white;
 }
 .button-task:hover{
-    background-color: rgba(14, 253, 6, 1);
+    background-color: whitesmoke;
     color:  rgba(17, 28, 47, 1); 
     transition: 0.3s ease;
 }
@@ -289,6 +279,58 @@ hr{
     border: 2px solid rgba(17, 28, 47, 1);
     background-color: rgba(255, 255, 255, 1);
 }
+.modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+.modal-form{
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+    align-items: center;
+    padding: 2%;
+    margin: 20px 40px 80px 40px;
+    border-radius: 15px;
+    border: 2px solid rgba(17, 28, 47, 1);
+    background-color: rgba(255, 255, 255, 1);
+}
+.modal-form h2{
+    text-align: center;
+    margin-bottom: 2%;
+}
+.confirmation{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 2vw;
+    margin: 2%;
+}
+.button-confirmation{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1.2em ;
+    line-height: 1.5em;
+    color: white;
+    background-color:  rgba(17, 28, 47, 1); 
+    border: 2px solid rgba(17, 28, 47, 1);
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.button-confirmation:hover{
+    background-color: whitesmoke;
+    color:  rgba(17, 28, 47, 1); 
+    transition: 0.3s ease;
+}
 
 /* Footer view */
 
@@ -347,13 +389,14 @@ hr{
     font-weight: 600;
     font-size: 1.2em ;
     line-height: 1.5em;
-    color:  rgba(17, 28, 47, 1); 
-    border: 2px solid rgba(17, 28, 47, 1);
+    color: white;
+    background-color:  rgba(17, 28, 47, 1); 
+    border: 2px solid rgba(17, 28, 47, 1); 
     border-radius: 5px;
     padding: 5px 10px;
 }
 .button-log-out:hover{
-    background-color: rgba(14, 253, 6, 1);
+    background-color: whitesmoke;
     color:  rgba(17, 28, 47, 1); 
     transition: 0.3s ease;
 }
