@@ -16,7 +16,7 @@
 
       <p>Description:</p>
       <ul>
-        <li :class="props.task.is_complete ? 'done' : 'pending'">
+        <li>
           {{ task.description }}
         </li>
       </ul>
@@ -25,7 +25,7 @@
       <p>Created on:</p>
 
       <p :class="props.task.is_complete ? 'done' : 'pending'">
-        {{ task.inserted_at }}
+        {{ task.inserted_at.slice(0, 10) }}
       </p>
 
       <hr />
@@ -142,6 +142,14 @@ const completedTask = () => {
   // console.log(props.task.is_complete);
   emit("childComplete", props.task);
 };
+
+// console.log(
+//   "inserted_at",
+//   props.task.inserted_at,
+//   typeof props.task.inserted_at
+// );
+
+// console.log(props.task.inserted_at.slice(0, 10));
 
 // FUNCIÓN PARA QUE CUANDO LE DES A EDITAR TAREA TE APAREZCAN NUEVOS INPUS Y EL BOTÓN DE EDITAR
 const inputContainer = ref(false);

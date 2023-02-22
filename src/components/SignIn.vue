@@ -1,49 +1,47 @@
 <template>
   <div class="signin-page">
     <div class="container">
-      <div class="internal-container">
-        <div>
-          <h1 class="header-title">Welcome back!</h1>
-          <p class="header-subtitle">
-            Start Organizing your daily goals with the tracker task!
-          </p>
-        </div>
-
-        <form @submit.prevent="signIn" class="form-sign-in">
-          <label for="uname" class="label-title">Email:</label>
-          <input
-            type="email"
-            name="uname"
-            class="input-field"
-            placeholder="example@gmail.com"
-            id="email"
-            v-model="email"
-            required
-          />
-
-          <label for="psw" class="label-title">Password:</label>
-          <input
-            type="password"
-            name="psw"
-            class="input-field"
-            placeholder="**********"
-            id="password"
-            v-model="password"
-            required
-          />
-
-          <button class="button" type="submit">Sign In</button>
-
-          <p>
-            Don't have an account?
-            <PersonalRouter
-              :route="route"
-              :buttonText="buttonText"
-              class="sign-in-link"
-            />
-          </p>
-        </form>
+      <div>
+        <h1 class="header-title">Welcome back!</h1>
+        <p class="header-subtitle">
+          Start Organizing your daily goals with the tracker task!
+        </p>
       </div>
+
+      <form @submit.prevent="signIn" class="form-sign-in">
+        <label for="uname" class="label-title">Email:</label>
+        <input
+          type="email"
+          name="uname"
+          class="input-field"
+          placeholder="example@gmail.com"
+          id="email"
+          v-model="email"
+          required
+        />
+
+        <label for="psw" class="label-title">Password:</label>
+        <input
+          type="password"
+          name="psw"
+          class="input-field"
+          placeholder="**********"
+          id="password"
+          v-model="password"
+          required
+        />
+
+        <button class="button" type="submit">Sign In</button>
+
+        <p>
+          Don't have an account?
+          <PersonalRouter
+            :route="route"
+            :buttonText="buttonText"
+            class="sign-in-link"
+          />
+        </p>
+      </form>
     </div>
   </div>
 </template>

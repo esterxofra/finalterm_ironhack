@@ -25,7 +25,7 @@
     <button @click.prevent="editProfile">Save changes</button>
   </form>
   <Footer />
-  <Menu />
+  <MenuHome />
 </template>
 
 <script setup>
@@ -35,7 +35,7 @@ import { useUserStore } from "../stores/user";
 import { useRouter } from "vue-router";
 import Nav from "../components/Nav.vue";
 import Footer from "../components/Footer.vue";
-import Menu from "../components/Menu.vue";
+import MenuHome from "../components/MenuHome.vue";
 
 // DECLARAR VARIABLE USERSTORE PARA CONECTARNOS CON LA STORE
 const userStore = useUserStore();

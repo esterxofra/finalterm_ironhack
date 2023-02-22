@@ -19,7 +19,7 @@
 
   <button @click.prevent="editProfileButton">Edit your profile</button>
   <Footer />
-  <Menu />
+  <MenuHome />
 </template>
 
 <script setup>
@@ -29,7 +29,7 @@ import { useUserStore } from "../stores/user";
 import { useRouter } from "vue-router";
 import Nav from "../components/Nav.vue";
 import Footer from "../components/Footer.vue";
-import Menu from "../components/Menu.vue";
+import MenuHome from "../components/MenuHome.vue";
 
 // Router to push user to EditProfile:
 const redirect = useRouter();

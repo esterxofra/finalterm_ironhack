@@ -18,20 +18,13 @@ export const useTaskStore = defineStore("tasks", () => {
     return tasksArr.value;
   };
   // añadir tareas de supabase
-  const addTask = async (
-    title,
-    inserted_at,
-    description,
-    deadline,
-    category
-  ) => {
+  const addTask = async (title, description, deadline, category) => {
     console.log(useUserStore().user.id);
     const { data, error } = await supabase.from("tasks").insert([
       {
         user_id: useUserStore().user.id,
         title: title,
         is_complete: false,
-        inserted_at: inserted_at,
         description: description,
         deadline: deadline,
         category: category,
