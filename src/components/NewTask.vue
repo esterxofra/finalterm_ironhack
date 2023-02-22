@@ -5,34 +5,54 @@
     </div>
 
     <div class="form-new-task">
-      <label for="new-title" class="label-task">Task title:</label>
-      <input
-        type="text"
-        name="new-title"
-        placeholder="Add a Task Title"
-        v-model="name"
-      />
+      <div class="inner-container">
+        <label for="new-title" class="label-task">Task title:</label>
+        <input
+          type="text"
+          class="input-task"
+          name="new-title"
+          placeholder="Add a Task Title"
+          v-model="name"
+        />
+      </div>
 
-      <label for="new-description" class="label-task">Add a description:</label>
-      <input
-        type="text"
-        name="new-description"
-        placeholder="Add a Task Description"
-        v-model="description"
-      />
+      <div class="inner-container">
+        <label for="new-description" class="label-task"
+          >Add a description:</label
+        >
+        <input
+          type="text"
+          class="input-task"
+          name="new-description"
+          placeholder="Add a Task Description"
+          v-model="description"
+        />
+      </div>
 
-      <label for="new-category" class="label-task">Category:</label>
-      <input
-        type="text"
-        name="new-category"
-        placeholder="Add a Task Category"
-        v-model="category"
-      />
+      <div class="inner-container">
+        <label for="new-category" class="label-task">Category:</label>
+        <input
+          type="text"
+          class="input-task"
+          name="new-category"
+          placeholder="Add a Task Category"
+          v-model="category"
+        />
+      </div>
 
-      <label for="deadline" class="label-task">Deadline:</label>
-      <input type="date" name="deadline" v-model="deadline" />
+      <div class="inner-container">
+        <label for="deadline" class="label-task">Deadline:</label>
+        <input
+          type="date"
+          class="input-task"
+          name="deadline"
+          v-model="deadline"
+        />
+      </div>
 
-      <button @click="addTask" class="button-task">Add task</button>
+      <div class="add-task-container">
+        <button @click="addTask" class="button-task">Add task</button>
+      </div>
     </div>
   </div>
 </template>

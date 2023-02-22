@@ -8,31 +8,32 @@
 
 *,html,body{
     overflow-x: hidden;
+    font-family: 'Montserrat', sans-serif;
+    color: rgba(17, 28, 47, 1); 
 }
 
 h1 {
-    font-family: 'Montserrat', sans-serif;
     font-size: 2.5em ;
     line-height: 1.5em;
-    color: rgba(17, 28, 47, 1); 
     margin-bottom: 0.5vh;
 } 
 
 h2 {
-    font-family: 'Montserrat', sans-serif;
     font-size: 2em ;
-    line-height: 1.5em;
-    color: rgba(17, 28, 47, 1); 
+    line-height: 2em;
     margin-bottom: 0.5vh;
 } 
 
+h3 {
+    font-size: 1.5em ;
+    line-height: 2em;
+    margin-bottom: 0.5vh;
+} 
 
-p, li{
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 300;
-    font-size: 1em ;
-    line-height: 1.5em;
-    color:  rgba(17, 28, 47, 1); 
+p, li, .label{
+    font-weight: 500;
+    font-size: 1.3em ;
+    line-height: 1.9em;
     margin-bottom: 0.5vh;
 } 
 
@@ -48,9 +49,10 @@ p, li{
     border-bottom: 2px solid rgba(17, 28, 47, 1);
     position: fixed;
     top: 0;
+    box-sizing: border-box;
     width: 100%;
-    height: 3vh;
-    z-index: 7;
+    height: 6vh;
+    z-index: 7; 
 }
 .logo{
     border-radius: 0px;
@@ -79,6 +81,7 @@ p, li{
     border: 2px solid rgba(17, 28, 47, 1);
     border-radius: 5px;
     padding: 5px 10px;
+    height: 45px;
 }
 .button-log-out:hover{
     background-color: whitesmoke;
@@ -152,8 +155,6 @@ p, li{
     margin-top: 6vh;
     padding: 20px 40px;
     border-bottom: 2px solid rgba(17, 28, 47, 1); 
-    /* position: fixed;
-    z-index: 2;  */
 }
 .container-new-task{
     display: flex;
@@ -167,13 +168,14 @@ p, li{
 .title-task-board{
     margin-top: 6vh;
     padding: 20px 40px;
-    border-bottom: 2px solid rgba(17, 28, 47, 1); 
+    border-bottom: 2px solid rgba(17, 28, 47, 1);
+    overflow-x: visible; 
 }
 .container-task-board{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    padding: 70px 0px;
+    padding: 50px 0px;
 }
 
 /* NewTask view */
@@ -181,26 +183,50 @@ p, li{
 /* NEW TASK: */
 
 .form-new-task{
-    padding: 20px 40px;
+    margin: 50px 40px;
+    padding: 0 7%;;
     display: flex;
     flex-direction: column;
 }
+.inner-container{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2.5vh;
+}
+.new-title{
+    height: 45px;
+}
 .label-task{
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    font-size: 1em ;
+    font-weight: 500;
+    font-size: 1.5em ;
     line-height: 1.5em;
     color:  rgba(17, 28, 47, 1); 
+    margin-bottom: 1vh;
+}
+.input-task{
+    height: 45px;
+    font-size: 1.3em ;
+    line-height: 1.5em;
     margin-bottom: 0.5vh;
+    color:  rgba(17, 28, 47, 1); 
+    padding-left: 1vw;
+    padding-right: 1vw;
+}
+.add-task-container{
+    display: flex;
+    justify-content: flex-end;
+    height: 45px;
 }
 .button-task{
-    width: 100%;
-    height: 45px;
-    background-color: black;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
-    font-size: 1em ;
+    font-weight: 600;
+    font-size: 1.2em ;
+    line-height: 1.5em;
     color: white;
+    background-color:  rgba(17, 28, 47, 1); 
+    border: 2px solid rgba(17, 28, 47, 1);
+    border-radius: 5px;
+    padding: 5px 10px;
+    width: 40%;
 }
 .button-task:hover{
     background-color: whitesmoke;
@@ -209,28 +235,39 @@ p, li{
 }
 
 /* TaskItem View */
-
+.container-board{
+    display: flex;
+    justify-content: center;
+}
+#category{
+    border: 2px solid rgba(17, 28, 47, 1);  
+    padding-right: 2%;
+    padding-left: 2%;
+    border-radius: 5%;
+    font-weight: 600;
+}
 .card-task{
-    width: 20vh;
+    width: 25vh;
     border: 2px solid rgba(17, 28, 47, 1);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     background-color: rgba(255, 255, 255, 0.5);
-    padding: 2%;
+    padding: 5%;
     margin: 20px 40px 80px 40px;
     border-radius: 15px;
+    overflow-x: visible;
 }
-.category{
+.category-container{
     display: flex;
     justify-content: flex-end;
-    border: 1px solid rgba(17, 28, 47, 1);
 }
 hr{
     border: 1px solid rgba(17, 28, 47, 0.5);
 }
 .card-task li{
     margin-left: 20px;
+    overflow-x: visible;
 }
 .container-icons{
     display: flex;
@@ -268,11 +305,17 @@ hr{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 2%;
+    padding: 5%;
     margin: 20px 40px 80px 40px;
     border-radius: 15px;
     border: 2px solid rgba(17, 28, 47, 1);
     background-color: rgba(255, 255, 255, 1);
+}
+.edit-task-container{
+    display: flex;
+    justify-content: flex-end;
+    height: 45px;
+    margin-top: 1vh;
 }
 .modal{
     position: fixed;
@@ -373,6 +416,7 @@ hr{
     height: 6vh;
     z-index: 3;
     padding: 0;
+    box-sizing: content-box;
 }
 .logo{
     border-radius: 0px;

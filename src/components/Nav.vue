@@ -1,11 +1,5 @@
 <template>
   <nav class="navbar">
-    <!-- <img
-      class="logo"
-      src="../assets/images/focus-on-logo-black-and-white.png"
-      alt="Focus Logo"
-    /> -->
-
     <router-link to="/" class="link-menu"
       ><img
         class="logo"

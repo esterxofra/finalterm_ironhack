@@ -1,22 +1,22 @@
 <template>
   <div class="container-board">
     <div class="card-task">
-      <div class="category">
-        <p :class="props.task.is_complete ? 'done' : 'pending'">
+      <div class="category-container">
+        <p id="category" :class="props.task.is_complete ? 'done' : 'pending'">
           {{ task.category }}
         </p>
       </div>
 
       <!-- TÍTULO DE LA TAREA -->
-      <h2 :class="props.task.is_complete ? 'done' : 'pending'">
+      <h3 :class="props.task.is_complete ? 'done' : 'pending'">
         {{ task.title }}
-      </h2>
+      </h3>
       <hr />
       <!-- DESCRIPCIÓN DE LA TAREA -->
 
       <p>Description:</p>
       <ul>
-        <li>
+        <li :class="props.task.is_complete ? 'done' : 'pending'">
           {{ task.description }}
         </li>
       </ul>
@@ -85,36 +85,49 @@
   <!-- INPUTS Y BOTÓN PARA EDITAR LA TAREA -->
   <div class="container-edit" v-if="inputContainer">
     <div class="container-edit-form">
-      <label for="title">Insert or modify your current title:</label>
+      <label for="title" class="label"
+        >Insert or modify your current title:</label
+      >
       <input
         type="text"
+        class="input-task"
         name="title"
         v-model="currentTaskTitle"
         placeholder="Insert new title..."
       />
 
-      <label for="description"
+      <label for="description" class="label"
         >Insert or modify your current description:</label
       >
       <input
-        type="text"
+        type="textarea"
+        class="input-task"
         name="description"
         v-model="currentTaskDescription"
         placeholder="Insert new description..."
       />
 
-      <label for="category">Insert or modify your current category:</label>
+      <label for="category" class="label"
+        >Insert or modify your current category:</label
+      >
       <input
         type="text"
+        class="input-task"
         name="category"
         v-model="currentTaskCategory"
         placeholder="Insert new category..."
       />
 
-      <label for="deadline">Deadline:</label>
-      <input type="date" name="deadline" v-model="currentTaskDeadline" />
-
-      <button @click="editTask">Edit Task</button>
+      <label for="deadline" class="label">Deadline:</label>
+      <input
+        type="date"
+        class="input-task"
+        name="deadline"
+        v-model="currentTaskDeadline"
+      />
+      <div class="edit-task-container">
+        <button @click="editTask" class="button-task">Edit Task</button>
+      </div>
     </div>
   </div>
 </template>
@@ -213,12 +226,11 @@ const showModalToggle = () => {
 
 <style>
 .done {
-  /* color: green; */
+  color: grey;
   text-decoration: line-through;
 }
 
 .pending {
-  /* color: red; */
   text-decoration: none;
 }
 </style>
