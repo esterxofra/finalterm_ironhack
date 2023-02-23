@@ -9,7 +9,7 @@
 
     <router-link to="/" class="link"> Home </router-link>
 
-    <router-link to="/chronometer" class="link">Clock</router-link>
+    <router-link to="/chronometer" class="link">Chronometer</router-link>
 
     <router-link to="/account" class="link"> Account</router-link>
 

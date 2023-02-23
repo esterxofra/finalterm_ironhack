@@ -1,23 +1,44 @@
 <template>
   <Nav />
-  <h1>Welcome to your profile page {{ name }} !</h1>
-  <div>
-    <img
-      :src="
-        avatar_url
-          ? avatar_url
-          : 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png'
-      "
-      alt="Profile picture"
-    />
-  </div>
 
-  <div>
-    <h2>Email: {{ username }}</h2>
-    <h2>Website: {{ website }}</h2>
-  </div>
+  <div class="wrapper-account">
+    <div class="account-container">
+      <div class="account-header">
+        <h2>Account</h2>
+      </div>
 
-  <button @click.prevent="editProfileButton">Edit your profile</button>
+      <div class="account-content">
+        <div class="welcome">
+          <h2>Welcome to your profile page, {{ name }} !</h2>
+        </div>
+        <div class="account-card">
+          <div class="card-profile">
+            <div class="profile-image">
+              <img
+                :src="
+                  avatar_url
+                    ? avatar_url
+                    : 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png'
+                "
+                alt="Profile picture"
+              />
+            </div>
+
+            <div class="info-profile">
+              <h3>Email: {{ username }}</h3>
+              <h3>Website: {{ website }}</h3>
+
+              <div class="edit-button-container">
+                <button class="edit-button" @click.prevent="editProfileButton">
+                  Edit your profile
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <Footer />
   <MenuHome />
 </template>

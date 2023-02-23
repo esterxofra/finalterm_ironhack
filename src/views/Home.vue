@@ -1,6 +1,5 @@
 <template>
   <Nav />
-
   <div class="wrapper">
     <div class="new-task">
       <div class="title-new-task">

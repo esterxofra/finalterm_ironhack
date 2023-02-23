@@ -85,9 +85,7 @@
   <!-- INPUTS Y BOTÓN PARA EDITAR LA TAREA -->
   <div class="container-edit" v-if="inputContainer">
     <div class="container-edit-form">
-      <label for="title" class="label"
-        >Insert or modify your current title:</label
-      >
+      <label for="title" class="label">Modify title:</label>
       <input
         type="text"
         class="input-task"
@@ -96,9 +94,7 @@
         placeholder="Insert new title..."
       />
 
-      <label for="description" class="label"
-        >Insert or modify your current description:</label
-      >
+      <label for="description" class="label">Modify description:</label>
       <input
         type="textarea"
         class="input-task"
@@ -107,9 +103,7 @@
         placeholder="Insert new description..."
       />
 
-      <label for="category" class="label"
-        >Insert or modify your current category:</label
-      >
+      <label for="category" class="label">Modify category:</label>
       <input
         type="text"
         class="input-task"
@@ -118,7 +112,7 @@
         placeholder="Insert new category..."
       />
 
-      <label for="deadline" class="label">Deadline:</label>
+      <label for="deadline" class="label">Modify deadline:</label>
       <input
         type="date"
         class="input-task"

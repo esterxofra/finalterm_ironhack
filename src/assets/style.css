@@ -89,8 +89,7 @@ p, li, .label{
     transition: 0.3s ease;
 }
 
-
-/* SignIn Component */
+/* Sign In & Sign Up Components */
 
 .sign-in-up-page{
     display: flex;
@@ -167,7 +166,7 @@ p, li, .label{
     border: 2px solid rgba(17, 28, 47, 1);
     border-radius: 5px;
     padding: 5px 10px;
-    width: 40%;
+    
 }
 .sign-in-up-button:hover{
     background-color: whitesmoke;
@@ -175,13 +174,11 @@ p, li, .label{
     transition: 0.3s ease;
 }
 
-/* SignUp Component */
-
 /* Home view */
+
 .wrapper{
     display: flex;
     flex-wrap: none;
-    background: rgb(255,195,1);
     background: linear-gradient(0deg, rgba(255,195,1,1) 0%, rgba(251,180,152,1) 51%, rgba(175,147,195,1) 100%);
     background-repeat: no-repeat;
     background-position: center;
@@ -189,7 +186,7 @@ p, li, .label{
     z-index: -1;
     height: 100vh;
 }
-/* NEW TASK: */
+/* Home view - new task */
 .new-task{
     flex: 3;  
     border-right: 2px solid rgba(17, 28, 47, 1); 
@@ -204,7 +201,7 @@ p, li, .label{
     flex-direction: column;
 }
 
-/* TASK BOARD: */
+/* Home view - tasks board */
 .tasks-board{
     flex: 7;
 }
@@ -222,8 +219,6 @@ p, li, .label{
 }
 
 /* NewTask view */
-
-/* NEW TASK: */
 
 .form-new-task{
     margin: 50px 40px;
@@ -269,7 +264,6 @@ p, li, .label{
     border: 2px solid rgba(17, 28, 47, 1);
     border-radius: 5px;
     padding: 5px 10px;
-    width: 40%;
 }
 .button-task:hover{
     background-color: whitesmoke;
@@ -278,6 +272,7 @@ p, li, .label{
 }
 
 /* TaskItem View */
+
 .container-board{
     display: flex;
     justify-content: center;
@@ -326,13 +321,11 @@ hr{
     background-color: rgba(255, 255, 255, 0);
     border: 0ch;
 }
-
 .icon-button img{
     font-size: 1em;
     border-radius: 0px;
     width: 60%;
 }
-
 .container-edit{
     position: fixed;
     top: 0;
@@ -407,12 +400,96 @@ hr{
     border-radius: 5px;
     padding: 5px 10px;
 }
-
 .button-confirmation:hover{
     background-color: whitesmoke;
     color:  rgba(17, 28, 47, 1); 
     transition: 0.3s ease;
 }
+
+/* Account view */
+.wrapper-account{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(0deg, rgba(255,195,1,1) 0%, rgba(251,180,152,1) 51%, rgba(175,147,195,1) 100%);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:cover;
+    height: 100vh;
+}
+.account-container{
+    display: flex;
+    flex-direction: column;
+    box-sizing: content-box;
+}
+.account-header{
+    margin-top: 6vh;
+    padding: 20px 40px;
+    border-bottom: 2px solid rgba(17, 28, 47, 1); 
+    box-sizing: content-box;
+}
+.account-content{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: content-box;
+}
+.welcome{
+    margin: 0vh 5vw 7vh 5vw;
+}
+.account-card{
+    display: flex;
+    justify-content: center;
+    padding: 3%;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    border-radius: 15px;
+    border: 2px solid rgba(17, 28, 47, 1);
+    gap: 50px;
+}
+.card-profile{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    box-sizing: content-box;
+    gap: 50px;
+}
+.profile-image img{
+    width: 400px;
+}
+.edit-button-container{
+    display: flex;
+    justify-content: center;
+    height: 45px;
+    width: auto;
+    margin: 2vh 0vw 3vh 0vw;
+}
+.edit-button{
+    font-weight: 600;
+    font-size: 1.2em ;
+    line-height: 1.5em;
+    color: white;
+    background-color:  rgba(17, 28, 47, 1); 
+    border: 2px solid rgba(17, 28, 47, 1);
+    border-radius: 5px;
+    padding: 5px 10px;
+    
+}
+.edit-button:hover{
+    background-color: whitesmoke;
+    color:  rgba(17, 28, 47, 1); 
+    transition: 0.3s ease;
+}
+
+
+
+
 
 /* Footer view */
 
@@ -469,7 +546,6 @@ hr{
 .link{
     display: none;
 }
-
 .button-log-out{
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
@@ -488,6 +564,7 @@ hr{
 }
 
 /* TaskItem View */
+
 .tasks-board{
     flex: 1;
 }
@@ -541,6 +618,7 @@ hr{
 }
 
 /* NewTask */
+
 .new-task{
     display: none; 
 }
@@ -589,5 +667,8 @@ hr{
     border-radius: 5px;
     padding: 5px 10px;
 }
-
+/* Account view */
+.card-profile{
+    justify-content: center;
+}
 }

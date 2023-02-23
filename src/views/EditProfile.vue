@@ -1,5 +1,5 @@
 <template>
-  <Nav />
+  <!-- <Nav /> -->
   <!-- FORMULARIO PARA EDITAR EL PERFIL DEL USUARIO -->
   <form>
     <!-- EDITAR NOMBRE -->
