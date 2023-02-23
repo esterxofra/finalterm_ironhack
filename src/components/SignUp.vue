@@ -17,7 +17,7 @@
       </div>
 
       <form @submit.prevent="signUp" class="form-sign-in">
-        <label for="uname" class="input-field-label">E-mail</label>
+        <label for="uname" class="input-field-label">Email:</label>
 
         <input
           type="email"
@@ -29,7 +29,7 @@
           required
         />
 
-        <label for="psw" class="input-field-label">Password</label>
+        <label for="psw" class="input-field-label">Password:</label>
         <input
           type="password"
           name="psw"
@@ -41,7 +41,7 @@
         />
 
         <label for="psw-confirmation" class="input-field-label"
-          >Confirm password</label
+          >Confirm password:</label
         >
         <input
           type="password"

@@ -1,10 +1,27 @@
 <template>
-  <!-- <Nav /> -->
-  <div>
-    {{ formatTime }}
-    <button @click="start">Start</button>
-    <button @click="stop">Stop</button>
-    <button @click="reset">Reset</button>
+  <Nav />
+  <div class="wrapper-account">
+    <div>
+      <div class="chronometer">
+        <div class="timer">
+          <p class="timer-numers">{{ formatTime }}</p>
+        </div>
+
+        <div class="chronometer-buttons">
+          <div class="edit-button-container">
+            <button class="edit-button" @click="start">Start</button>
+          </div>
+
+          <div class="edit-button-container">
+            <button class="edit-button" @click="stop">Stop</button>
+          </div>
+
+          <div class="edit-button-container">
+            <button class="edit-button" @click="reset">Reset</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <Footer />
   <MenuHome />

@@ -1,29 +1,64 @@
 <template>
-  <!-- <Nav /> -->
+  <Nav />
   <!-- FORMULARIO PARA EDITAR EL PERFIL DEL USUARIO -->
-  <form>
-    <!-- EDITAR NOMBRE -->
-    <label for="name">Insert your name:</label>
-    <input type="text" autocomplete="off" name="name" v-model="name" />
+  <div class="wrapper-account">
+    <div class="account-container">
+      <div class="account-header">
+        <h2>Edit Profile</h2>
+      </div>
 
-    <!-- EDITAR USERNAME -->
-    <label for="username">Insert your username:</label>
-    <input type="text" autocomplete="off" name="username" v-model="username" />
+      <form class="account-content">
+        <div class="account-edit-card">
+          <!-- EDITAR NOMBRE -->
+          <label class="label-task" for="name">Insert your name:</label>
+          <input
+            type="text"
+            class="input-task"
+            autocomplete="off"
+            name="name"
+            v-model="name"
+          />
 
-    <!-- EDITAR WEBSITE -->
-    <label for="website">Insert your website:</label>
-    <input type="text" autocomplete="off" name="website" v-model="website" />
+          <!-- EDITAR USERNAME -->
+          <label class="label-task" for="username">Insert your username:</label>
+          <input
+            type="text"
+            class="input-task"
+            autocomplete="off"
+            name="username"
+            v-model="username"
+          />
 
-    <!-- SUBIR UNA NUEVA IMAGEN AL PERFIL -->
-    <input
-      @change="uploadAvatar"
-      type="file"
-      accept=".jpg, .jpeg, .png, .gif"
-    />
+          <!-- EDITAR WEBSITE -->
+          <label class="label-task" for="website">Insert your website:</label>
+          <input
+            type="text"
+            class="input-task"
+            autocomplete="off"
+            name="website"
+            v-model="website"
+          />
 
-    <!-- BOTÓN PARA GUARDAR LOS CAMBIOS Y VOLVER A LA PÁGINA DE ACCOUNT -->
-    <button @click.prevent="editProfile">Save changes</button>
-  </form>
+          <!-- SUBIR UNA NUEVA IMAGEN AL PERFIL -->
+          <div class="image-button">
+            <input
+              class="input-task"
+              @change="uploadAvatar"
+              type="file"
+              accept=".jpg, .jpeg, .png, .gif"
+            />
+          </div>
+
+          <!-- BOTÓN PARA GUARDAR LOS CAMBIOS Y VOLVER A LA PÁGINA DE ACCOUNT -->
+          <div class="edit-button-container">
+            <button class="edit-button" @click.prevent="editProfile">
+              Save changes
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
   <Footer />
   <MenuHome />
 </template>

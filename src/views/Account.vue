@@ -9,7 +9,7 @@
 
       <div class="account-content">
         <div class="welcome">
-          <h2>Welcome to your profile page, {{ name }} !</h2>
+          <h2>Welcome, {{ name }}!</h2>
         </div>
         <div class="account-card">
           <div class="card-profile">
@@ -26,7 +26,7 @@
 
             <div class="info-profile">
               <h3>Email: {{ username }}</h3>
-              <h3>Website: {{ website }}</h3>
+              <h3>Username: {{ website }}</h3>
 
               <div class="edit-button-container">
                 <button class="edit-button" @click.prevent="editProfileButton">

@@ -166,7 +166,6 @@ p, li, .label{
     border: 2px solid rgba(17, 28, 47, 1);
     border-radius: 5px;
     padding: 5px 10px;
-    
 }
 .sign-in-up-button:hover{
     background-color: whitesmoke;
@@ -186,7 +185,9 @@ p, li, .label{
     z-index: -1;
     height: 100vh;
 }
+
 /* Home view - new task */
+
 .new-task{
     flex: 3;  
     border-right: 2px solid rgba(17, 28, 47, 1); 
@@ -200,8 +201,15 @@ p, li, .label{
     display: flex;
     flex-direction: column;
 }
+.alert{
+    background-color:rgb(246, 255, 0);
+    display: flex;
+    margin: 5%;
+    padding: 5%;
+}
 
 /* Home view - tasks board */
+
 .tasks-board{
     flex: 7;
 }
@@ -407,6 +415,7 @@ hr{
 }
 
 /* Account view */
+
 .wrapper-account{
     display: flex;
     flex-direction: column;
@@ -437,9 +446,10 @@ hr{
     justify-content: center;
     align-items: center;
     box-sizing: content-box;
+    margin-bottom: 10vh;;
 }
 .welcome{
-    margin: 0vh 5vw 7vh 5vw;
+    margin: 0vh 5vw 5vh 5vw;
 }
 .account-card{
     display: flex;
@@ -487,9 +497,47 @@ hr{
     transition: 0.3s ease;
 }
 
+/* Edit Profile view */
 
+.account-edit-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3%;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    border-radius: 15px;
+    border: 2px solid rgba(17, 28, 47, 1);
+}
+.image-button{
+    margin-top: 2vh;
+}
 
+/* Chronometer view */
 
+.chronometer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 15px;
+    border: 2px solid rgba(17, 28, 47, 1);
+    box-sizing:border-box;
+    width: 50vw;
+    padding: 5% 10%;
+}
+.timer{
+    display: flex;
+    justify-content: center;
+    
+}
+.timer-numers{
+    font-size: 7em ;
+}
+.chronometer-buttons{
+    display: flex;
+    justify-content: center;
+    gap: 10%;
+}
 
 /* Footer view */
 
@@ -563,6 +611,15 @@ hr{
     transition: 0.3s ease;
 }
 
+/* Sign In & Up component */
+
+.logo-container{
+    padding: 50px 50px;
+}
+.container{
+    width: 60vw;
+}
+
 /* TaskItem View */
 
 .tasks-board{
@@ -587,6 +644,15 @@ hr{
     border-radius: 15px;
     overflow-x: visible;
 }
+.container-icons{
+    margin-top: 2vh;
+}
+.icon-button img{
+    width: 35%;
+}
+#category{
+    margin-bottom: 2vh;
+}
 
 /* Menu view */
 
@@ -610,6 +676,13 @@ hr{
     background-color: rgba(255, 255, 255, 0.5);
     border: none;
 } 
+.icon-menu:hover{
+    display: flex;
+    justify-content: center;
+    width: calc(33.33% - 10px); 
+    background-color: rgba(96, 92, 92, 0.5);
+    border: none;
+} 
 .icon-menu img{
     border-radius: 0%;
     padding: 15px 32px;
@@ -625,13 +698,25 @@ hr{
 .title-new-task{
     display: none;
 }
+.form-new-task{
+    margin: 50px 5px;
+    padding: 0 1%;;
+}
+.alert{
+    background-color:rgb(246, 255, 0);
+    display: flex;
+    margin: 5%;
+    padding: 5%;
+}
 
 /* Footer view */
+
 .footer-container{
     display: none;
 }
 
 /* Modal Menu view */
+
 .show-new-task{
     display: flex;
     background-color: pink;
@@ -653,7 +738,7 @@ hr{
 .container-menu{
     display: flex;
     flex-direction: column;
-    width: 40vw;
+    width: 60vw;
     align-items: center;
     margin: 20px 40px 80px 40px;
     border-radius: 15px;
@@ -665,10 +750,26 @@ hr{
     border: 2px solid rgba(17, 28, 47, 1);
     background-color: rgba(255, 255, 255, 1);
     border-radius: 5px;
-    padding: 5px 10px;
+    padding: 0px 10px;
 }
+
 /* Account view */
-.card-profile{
+
+.welcome{
+    width: 100vw;
+    display: flex;
     justify-content: center;
+}
+.profile-image img{
+    width: 300px;
+}
+
+/* Chronometer view */
+
+.chronometer{
+    width: 70vw;
+}
+.timer-numers{
+    font-size: 4em ;
 }
 }

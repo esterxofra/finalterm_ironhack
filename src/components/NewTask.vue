@@ -1,6 +1,6 @@
 <template>
   <div class="container-new-task">
-    <div v-if="showErrorMessage">
+    <div class="alert" v-if="showErrorMessage">
       <p class="error-text">{{ errorMessage }}</p>
     </div>
 
@@ -86,7 +86,7 @@ const addTask = () => {
     // Primero comprobamos que ningún campo del input esté vacío y lanzamos el error con un timeout para informar al user.
 
     showErrorMessage.value = true;
-    errorMessage.value = "The task title or description is empty";
+    errorMessage.value = "You must fill in all of the fields.";
     setTimeout(() => {
       showErrorMessage.value = false;
     }, 5000);
