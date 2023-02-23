@@ -177,11 +177,11 @@ En resumen, la sección "construido con" es una excelente manera de brindar a lo
 
 ###### Miércoles 22, 2023
 
-- [ ] Resolver dudas (add new task, edit new task, error footer, añadir tareas mobile)
-- [ ] Estilar sign in
-- [ ] Estilar sign up
-- [ ] Estilar últimos detalles de la página de tareas
-- [ ] Documentación: se mantendrá una ruta de trabajo en el readme del repositorio, actualizándolo diariamente.
+- [x] Resolver dudas (add new task, edit new task, error footer, añadir tareas mobile)
+- [x] Estilar sign in
+- [x] Estilar sign up
+- [x] Estilar últimos detalles de la página de tareas
+- [x] Documentación: se mantendrá una ruta de trabajo en el readme del repositorio, actualizándolo diariamente.
 
 #### Day Eight
 
