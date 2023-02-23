@@ -14,10 +14,7 @@
       ><img src="../assets/icons/clock-button.svg" alt="Clock"
     /></router-link>
 
-    <button
-      @click="showInputNewClass"
-      class="icon-menu tracking-in-expand-forward-bottom"
-    >
+    <button @click="showInputNewClass" class="icon-menu">
       <img src="../assets/icons/add-task-button.svg" alt="Add a new task" />
     </button>
   </div>

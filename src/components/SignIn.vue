@@ -1,7 +1,15 @@
 <template>
-  <div class="signin-page">
+  <div class="sign-in-up-page">
+    <div class="logo-container">
+      <img
+        class="logo"
+        src="../assets/images/focus-on-logo-black-and-white.png"
+        alt="Focus Logo"
+      />
+    </div>
+
     <div class="container">
-      <div>
+      <div class="header">
         <h1 class="header-title">Welcome back!</h1>
         <p class="header-subtitle">
           Start Organizing your daily goals with the tracker task!
@@ -9,7 +17,8 @@
       </div>
 
       <form @submit.prevent="signIn" class="form-sign-in">
-        <label for="uname" class="label-title">Email:</label>
+        <label for="uname" class="input-field-label">Email:</label>
+
         <input
           type="email"
           name="uname"
@@ -20,7 +29,7 @@
           required
         />
 
-        <label for="psw" class="label-title">Password:</label>
+        <label for="psw" class="input-field-label">Password:</label>
         <input
           type="password"
           name="psw"
@@ -31,19 +40,24 @@
           required
         />
 
-        <button class="button" type="submit">Sign In</button>
+        <div class="sign-in-up-container">
+          <button class="sign-in-up-button" type="submit">Sign In</button>
+        </div>
 
-        <p>
-          Don't have an account?
-          <PersonalRouter
-            :route="route"
-            :buttonText="buttonText"
-            class="sign-in-link"
-          />
-        </p>
+        <div class="account">
+          <p>
+            Don't have an account?
+            <PersonalRouter
+              :route="route"
+              :buttonText="buttonText"
+              class="sign-in-link"
+            />
+          </p>
+        </div>
       </form>
     </div>
   </div>
+  <Footer />
 </template>
 
 <script setup>
@@ -53,6 +67,7 @@ import { supabase } from "../supabase";
 import { useRouter } from "vue-router";
 import { useUserStore } from "../stores/user";
 import { storeToRefs } from "pinia";
+import Footer from "../components/Footer.vue";
 
 // Input Fields
 const email = ref("");
@@ -66,7 +81,7 @@ const redirect = useRouter();
 
 // Route Variables
 const route = "/auth/signup";
-const buttonText = "Create an account.";
+const buttonText = "Sign up.";
 
 // Arrow function to Signin user to supaBase
 const signIn = async () => {

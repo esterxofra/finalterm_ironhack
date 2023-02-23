@@ -1,61 +1,77 @@
 <template>
-  <div class="container">
-    <div class="header">
-      <div class="header-description">
-        <h3 class="header-title">Register to ToDo App</h3>
-        <p class="header-subtitle">Start organizing your tasks!</p>
-      </div>
+  <div class="sign-in-up-page">
+    <div class="logo-container">
+      <img
+        class="logo"
+        src="../assets/images/focus-on-logo-black-and-white.png"
+        alt="Focus Logo"
+      />
     </div>
 
-    <form @submit.prevent="signUp" class="form-sign-in">
-      <div class="form">
-        <div class="form-input">
-          <label class="input-field-label">E-mail</label>
-          <input
-            type="email"
-            class="input-field"
-            placeholder="example@gmail.com"
-            id="email"
-            v-model="email"
-            required
-          />
-        </div>
-        <div class="form-input">
-          <label class="input-field-label">Password</label>
-          <input
-            type="password"
-            class="input-field"
-            placeholder="**********"
-            id="password"
-            v-model="password"
-            required
-          />
-        </div>
-        <div class="form-input">
-          <label class="input-field-label">Confirm password</label>
-          <input
-            type="password"
-            class="input-field"
-            placeholder="**********"
-            id="confirmPassword"
-            v-model="confirmPassword"
-            required
-          />
-        </div>
-        <button class="button" type="submit">Sign Up</button>
-        <p>
-          Have an account?
-          <PersonalRouter
-            :route="route"
-            :buttonText="buttonText"
-            class="sign-up-link"
-          />
+    <div class="container">
+      <div class="header">
+        <h1 class="header-title">Hello!</h1>
+        <p class="header-subtitle">
+          Start Organizing your daily goals with the tracker task!
         </p>
       </div>
-    </form>
 
-    <div v-show="errorMsg">{{ errorMsg }}</div>
+      <form @submit.prevent="signUp" class="form-sign-in">
+        <label for="uname" class="input-field-label">E-mail</label>
+
+        <input
+          type="email"
+          name="uname"
+          class="input-field"
+          placeholder="example@gmail.com"
+          id="email"
+          v-model="email"
+          required
+        />
+
+        <label for="psw" class="input-field-label">Password</label>
+        <input
+          type="password"
+          name="psw"
+          class="input-field"
+          placeholder="**********"
+          id="password"
+          v-model="password"
+          required
+        />
+
+        <label for="psw-confirmation" class="input-field-label"
+          >Confirm password</label
+        >
+        <input
+          type="password"
+          name="psw-confirmation"
+          class="input-field"
+          placeholder="**********"
+          id="confirmPassword"
+          v-model="confirmPassword"
+          required
+        />
+
+        <div class="sign-in-up-container">
+          <button class="sign-in-up-button" type="submit">Sign Up</button>
+        </div>
+
+        <div class="account">
+          <p>
+            Have an account?
+            <PersonalRouter
+              :route="route"
+              :buttonText="buttonText"
+              class="sign-up-link"
+            />
+          </p>
+        </div>
+      </form>
+      <div v-show="errorMsg">{{ errorMsg }}</div>
+    </div>
   </div>
+  <Footer />
 </template>
 
 <script setup>
@@ -65,6 +81,7 @@ import { supabase } from "../supabase";
 import { useRouter } from "vue-router";
 import { useUserStore } from "../stores/user";
 import { storeToRefs } from "pinia";
+import Footer from "../components/Footer.vue";
 
 // Route Variables
 const route = "/auth/login";
