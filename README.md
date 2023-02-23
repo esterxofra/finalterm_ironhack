@@ -68,9 +68,9 @@ La sección "sobre el proyecto" en un archivo README es una sección importante 
 
 En esta sección se puede incluir información como:
 
-- Una descripción breve del proyecto y su propósito
+- Una descripción breve del proyecto y su propósito: Aplicación para el registro de tareas.
 - Tecnologías utilizadas
-- Funcionalidades principales
+- Funcionalidades principales: crear tareas, editarlas, marcarlas como completadas y eliminarlas. También hay un cronómetro y una página de perfil donde el usuario puede editar sus datos personales e incluir su foto de perfil.
 - Instrucciones de instalación y configuración
 - Enlaces a documentación adicional o recursos relacionados con el proyecto
 - Licencia del proyecto
@@ -86,9 +86,9 @@ La sección "construido con" en un archivo README es una sección que proporcion
 
 En esta sección se puede incluir información como:
 
-- Lenguajes de programación utilizados
-- Frameworks y bibliotecas utilizadas
-- Herramientas de desarrollo (IDE, control de versiones, etc)
+- Lenguajes de programación utilizados: JavaScript
+- Frameworks y bibliotecas utilizadas: Vue 3
+- Herramientas de desarrollo (IDE, control de versiones, etc): GitHub
 - Servicios en la nube utilizados (si corresponde)
 - Otros recursos o tecnologías relacionadas con el proyecto.
 
@@ -178,27 +178,24 @@ En resumen, la sección "construido con" es una excelente manera de brindar a lo
 ###### Miércoles 22, 2023
 
 - [x] Resolver dudas (add new task, edit new task, error footer, añadir tareas mobile)
-- [x] Estilar sign in
-- [x] Estilar sign up
 - [x] Estilar últimos detalles de la página de tareas
 - [x] Documentación: se mantendrá una ruta de trabajo en el readme del repositorio, actualizándolo diariamente.
+
+- [ ] Estilar sign in
+- [ ] Estilar sign up
 
 #### Day Eight
 
 ###### Jueves 23, 2023
 
-- [ ] Estilar profile
-- [ ] Estilar edit profile
-- [ ] Hacer el clock
-- [ ] Estilar clock
-- [ ] Documentación: se mantendrá una ruta de trabajo en el readme del repositorio, actualizándolo diariamente.
-
-#### Day Nine
-
-###### Viernes 24, 2023
-
-- [ ] Preparar presentación
-- [ ] Documentación: se mantendrá una ruta de trabajo en el readme del repositorio, actualizándolo diariamente.
+- [x] Estilar sign in
+- [x] Estilar sign up
+- [x] Estilar profile
+- [x] Estilar edit profile
+- [x] Hacer el clock
+- [x] Estilar clock
+- [x] Documentación: se mantendrá una ruta de trabajo en el readme del repositorio, actualizándolo diariamente.
+- [x] Preparar presentación
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -210,18 +207,11 @@ La sección "sobre mí" en un archivo README es una sección que proporciona inf
 
 En esta sección se puede incluir información como:
 
-- Nombre y datos de contacto del desarrollador o equipo.
-- Información sobre experiencia laboral o académica relacionada con el proyecto.
-- Enlaces a perfiles en redes sociales o sitios web personales.
+- Ester Xofra Mateo - esterxofra@gmail.com
+- Máster en Diseño Gráfico y entornos digitales (especialización en UX Design) en la escuela de diseño Labasad y Bootcamp de Front End en Ironhack Spain.
+- LinkedIn: https://www.linkedin.com/in/esterxofra/
 - Otra información relevante que el desarrollador o equipo desee compartir.
-
-En resumen, la sección "sobre mí" es una excelente manera de brindar a los usuarios y contribuidores una idea de quién está detrás del proyecto y cómo pueden ponerse en contacto con ellos si tienen preguntas o comentarios. Es una buena manera de establecer una conexión con la comunidad de desarrolladores y una forma de mostrar la transparencia en el proyecto.
-
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
-
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
-
-Presentation Link: [Insert here your presentation link](insert-link-here)
+- Project Link: [https://github.com/your_username/repo_name](https://github.com/esterxofra/finalterm_ironhack)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -233,14 +223,16 @@ La sección "agradecimientos" en un archivo README es una sección que proporcio
 
 En esta sección se puede incluir información como:
 
-- Agradecimientos específicos a personas que ayudaron en el desarrollo del proyecto.
-- Agradecimientos a instituciones o organizaciones que proporcionaron apoyo financiero o recursos.
-- Enlaces a proyectos o recursos relacionados que fueron útiles para el desarrollo del proyecto.
+- Agradecimientos a mis profesores: Aleix, Diego y Jarko por su profesionalidad e infinita paciencia, pero sobre todo por ser unas bellísimas personas que han hecho que estas semanas de aprendizaje y gran esfuerzo sean una experiencia increíble que me ha marcado positivamente tanto a nivel profesional como personal.
 
-En resumen, la sección "agradecimientos" es una excelente manera de agradecer a las personas o instituciones que ayudaron en el desarrollo del proyecto. Esta sección también puede ser útil para dar crédito a los recursos o proyectos relacionados que fueron útiles durante el desarrollo.
+- Agradecimientos a todos y cada uno de mis compañeros por todo el soporte y los ánimos que nos hemos dado mutuamente. Nunca dejará de sorprenderme cómo personas tan dispares han sabido conectar tan bien.
+
+- Agradecimientos a Ironhack Spain y el Servei d'Ocupació de Catalunya para poder a disposición de todos formaciones de tan gran calidad.
+
+- Enlaces a proyectos o recursos relacionados que fueron útiles para el desarrollo del proyecto (FIGMA: https://www.figma.com/proto/w5adHVMWEBRYNwblORZwTB/Untitled?page-id=0%3A1&node-id=6%3A2&viewport=-6377%2C450%2C1.01&scaling=scale-down)
 
 - [Icon Libraries](insert-link-here)
-- [Google Font Libraries](insert-link-here)
+- [Google Font Libraries](https://fonts.google.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -250,10 +242,7 @@ La sección "desafío técnico" aunque no es convencional en un proyecto profesi
 
 En esta sección se puede incluir información como:
 
-- Problemas técnicos específicos que se encontraron durante el desarrollo del proyecto.
-- Soluciones implementadas para superar estos desafíos.
-- Aspectos del proyecto que aún son un desafío o que requieren mejora continua.
-- Recomendaciones para futuros desarrolladores que trabajen en el proyecto.
+- Entender como funciona el framework de Vue 3. Especialmente en lo que respecta a los props, emits, watchers, etc.
 
 En resumen, la sección "desafío técnico" es una excelente manera de brindar a los usuarios y contribuidores una idea de los desafíos técnicos que se enfrentaron durante el desarrollo del proyecto, y cómo se abordaron. Esta sección también puede ser útil para futuros desarrolladores que trabajen en el proyecto, ya que les brinda información valiosa sobre problemas potenciales y soluciones para superarlos.
 
@@ -263,9 +252,8 @@ La sección "grande error" en un archivo README es una sección opcional que pro
 
 En esta sección se puede incluir información como:
 
-- Descripción detallada del error cometido.
-- Consecuencias del error.
-- Soluciones implementadas para corregir el error.
-- Lecciones aprendidas y recomendaciones para evitar errores similares en el futuro.
+- Empezar a programar directamente sin tener un diseño en mente. En este sentido me ha ayudado el dedicar entre 2 - 3 días para hacer un brainstorming de otras aplicaciones de tareas y ver qué elementos son esenciales. También fue útil buscar referencias en páginas web como Pinterest, Dribbble y Awwwards para determinar un estilo concreto. Finalmente, realicé un prototipo de baja fidelidad en Figma para tener una idea más real del resultado final.
+
+- No respetar los tiempos previstos para cada una de las actividades planeadas. Por ejemplo, dediqué mucho más tiempo a la parte relacionada con el diseño cuando ya tenía una propuesta final que cumplía con los requisitos indicados.
 
 En resumen, la sección "grande error" es una forma de ser transparente sobre los errores cometidos durante el desarrollo del proyecto. También puede ser útil para otros desarrolladores que trabajen en el proyecto, ya que les brinda información valiosa sobre problemas potenciales y cómo se abordaron.
