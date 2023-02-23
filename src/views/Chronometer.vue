@@ -1,23 +1,29 @@
 <template>
   <Nav />
   <div class="wrapper-account">
-    <div>
-      <div class="chronometer">
-        <div class="timer">
-          <p class="timer-numers">{{ formatTime }}</p>
-        </div>
+    <div class="account-container">
+      <div class="account-header">
+        <h2>Chronometer</h2>
+      </div>
 
-        <div class="chronometer-buttons">
-          <div class="edit-button-container">
-            <button class="edit-button" @click="start">Start</button>
+      <div class="account-content">
+        <div class="chronometer">
+          <div class="timer">
+            <p class="timer-numers">{{ formatTime }}</p>
           </div>
 
-          <div class="edit-button-container">
-            <button class="edit-button" @click="stop">Stop</button>
-          </div>
+          <div class="chronometer-buttons">
+            <div class="edit-button-container">
+              <button class="edit-button" @click="start">Start</button>
+            </div>
 
-          <div class="edit-button-container">
-            <button class="edit-button" @click="reset">Reset</button>
+            <div class="edit-button-container">
+              <button class="edit-button" @click="stop">Stop</button>
+            </div>
+
+            <div class="edit-button-container">
+              <button class="edit-button" @click="reset">Reset</button>
+            </div>
           </div>
         </div>
       </div>
