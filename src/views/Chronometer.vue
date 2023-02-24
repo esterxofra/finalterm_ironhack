@@ -41,7 +41,7 @@ import Nav from "../components/Nav.vue";
 import Footer from "../components/Footer.vue";
 import MenuHome from "../components/MenuHome.vue";
 
-const elapsed = ref(0);
+const elapsed = ref("");
 const isRunning = ref(false);
 
 function start() {
@@ -57,15 +57,43 @@ function reset() {
   isRunning.value = false;
 }
 
+// The watch() function monitors the isRunning variable and updates the elapsed time every 10 milliseconds while the chronometer is running.
+
+// NOTE:
+
+// watch(isRunning, (newValue, oldValue) => {
+//   if (newValue) {
+//     const startTime = Date.now() - elapsed.value;
+//     const intervalId = setInterval(() => {
+//       elapsed.value = Date.now() - startTime;
+//     }, 10);
+//     onUnmounted(() => clearInterval(intervalId)); // Move this line inside the watch function
+//   }
+// });
+
+// ERROR --> onUnmounted is called when there is no active component instance to be associated with. Lifecycle injection APIs can only be used during execution of setup(). If you are using async setup(), make sure to register lifecycle hooks before the first await statement.
+
+// So the new approach is...
+
+const intervalId = ref(null);
+
 watch(isRunning, (newValue, oldValue) => {
   if (newValue) {
     const startTime = Date.now() - elapsed.value;
-    const intervalId = setInterval(() => {
+    intervalId.value = setInterval(() => {
       elapsed.value = Date.now() - startTime;
     }, 10);
-    onUnmounted(() => clearInterval(intervalId));
+  } else {
+    clearInterval(intervalId.value);
+    intervalId.value = null;
   }
 });
+
+onUnmounted(() => {
+  clearInterval(intervalId.value);
+});
+
+// The formatTime computed property formats the elapsed time into a string that shows minutes and seconds with two decimal places.
 
 const formatTime = computed(() => {
   const minutes = Math.floor(elapsed.value / 60000);
@@ -75,17 +103,3 @@ const formatTime = computed(() => {
 </script>
 
 <style></style>
-
-<!-- This component uses the ref() and computed() functions from Vue 3 to create reactive variables for the elapsed time and the chronometer status, and to compute the formatted time display.
-
-The start(), stop(), and reset() functions control the chronometer status and elapsed time.
-
-The watch() function monitors the isRunning variable and updates the elapsed time every 10 milliseconds while the chronometer is running.
-
-The onUnmounted() function clears the interval when the component is unmounted to prevent memory leaks.
-
-The formatTime computed property formats the elapsed time into a string that shows minutes and seconds with two decimal places.
-
-The @click event listeners on the buttons call the start(), stop(), and reset() functions to control the chronometer.
-
-You can customize the chronometer display and behavior by adjusting the functions and computed properties in the script setup section. -->
